@@ -1,132 +1,132 @@
 {
   "id": "before-induction-safety-check",
   "number": 3,
-  "title": "Before Induction Safety Check",
+  "title": "Pemeriksaan Keselamatan Sebelum Induksi",
   "category": "preparation",
   "difficulty": "INTERMEDIATE",
   "durationMin": 10,
-  "summary": "Run the Sign In phase and the equipment check before anesthesia, and stop the case when a safety check fails.",
-  "scenario": "The patient is in the operating room and awake. Before induction, the team performs the Sign In phase of the surgical safety checklist and the anesthesia machine and equipment check. You are the anesthesia nurse responsible for making sure nothing is skipped.",
+  "summary": "Jalankan fase Sign In dan pemeriksaan peralatan sebelum anestesi, lalu hentikan tindakan bila pemeriksaan keselamatan gagal.",
+  "scenario": "Pasien sudah berada di kamar operasi dan masih sadar. Sebelum induksi, tim melakukan fase Sign In pada daftar periksa keselamatan bedah dan pemeriksaan mesin serta peralatan anestesi. Kamu adalah perawat anestesi yang memastikan tidak ada yang terlewat.",
   "objectives": [
-    "Place the Sign In phase in the surgical safety checklist",
-    "Recall the order of Sign In items",
-    "Detect unsafe entries on the checklist",
-    "Verify machine and equipment, and respond to a failed check"
+    "Menempatkan fase Sign In dalam daftar periksa keselamatan bedah",
+    "Mengingat urutan butir Sign In",
+    "Menemukan entri daftar periksa yang tidak aman",
+    "Memverifikasi mesin dan peralatan, serta merespons pemeriksaan yang gagal"
   ],
-  "patient": { "sex": "Male", "age": 45, "procedure": "Elective left knee arthroscopy under general anesthesia", "note": "ASA I" },
+  "patient": { "sex": "Laki-laki", "age": 45, "procedure": "Artroskopi lutut kiri elektif dengan anestesi umum", "note": "ASA I" },
   "vitals": { "bp": "126/80", "hr": 74, "spo2": 99, "temp": 36.6, "rr": 14 },
   "history": [
-    "No chronic illness, no regular medication",
-    "Reports itchy skin after wearing latex gloves",
-    "Planned procedure: LEFT knee",
-    "Fasting confirmed by patient"
+    "Tidak ada penyakit kronis, tidak minum obat rutin",
+    "Melaporkan kulit gatal setelah memakai sarung tangan lateks",
+    "Prosedur yang direncanakan: lutut KIRI",
+    "Puasa dikonfirmasi oleh pasien"
   ],
   "references": [
     { "title": "WHO Surgical Safety Checklist", "org": "World Health Organization (WHO)" },
-    { "title": "Pre-Anesthesia Checkout Procedures (anesthesia machine)", "org": "ASA / manufacturer instructions" }
+    { "title": "Pre-Anesthesia Checkout Procedures (anesthesia machine)", "org": "ASA / petunjuk pabrikan" }
   ],
   "steps": [
     {
-      "id": "s1", "type": "mcq", "title": "Which phase?", "tag": "Safety",
-      "situation": "The patient is in the operating room, awake, and induction has not started.",
-      "prompt": "Which phase of the WHO Surgical Safety Checklist applies now?",
+      "id": "s1", "type": "mcq", "title": "Fase yang mana?", "tag": "Keselamatan",
+      "situation": "Pasien berada di kamar operasi dalam keadaan sadar, dan induksi belum dimulai.",
+      "prompt": "Fase mana dari WHO Surgical Safety Checklist yang berlaku sekarang?",
       "options": [
-        { "id": "a", "text": "Sign In (before induction of anesthesia)" },
-        { "id": "b", "text": "Time Out (before skin incision)" },
-        { "id": "c", "text": "Sign Out (before the patient leaves the operating room)" },
-        { "id": "d", "text": "Pre-operative clinic visit" }
+        { "id": "a", "text": "Sign In (sebelum induksi anestesi)" },
+        { "id": "b", "text": "Time Out (sebelum insisi kulit)" },
+        { "id": "c", "text": "Sign Out (sebelum pasien meninggalkan kamar operasi)" },
+        { "id": "d", "text": "Kunjungan poli pra-operasi" }
       ],
       "correct": "a",
-      "explanation": "The Sign In phase takes place before induction of anesthesia. Time Out is before incision and Sign Out is before the patient leaves the room.",
-      "takeaway": "Sign In = before induction. Time Out = before incision. Sign Out = before leaving."
+      "explanation": "Fase Sign In dilakukan sebelum induksi anestesi. Time Out sebelum insisi, dan Sign Out sebelum pasien meninggalkan ruangan.",
+      "takeaway": "Sign In = sebelum induksi. Time Out = sebelum insisi. Sign Out = sebelum keluar."
     },
     {
-      "id": "s2", "type": "sequence", "title": "Sign In order", "tag": "Safety",
-      "prompt": "Arrange the Sign In items in the order they appear on the WHO checklist.",
+      "id": "s2", "type": "sequence", "title": "Urutan Sign In", "tag": "Keselamatan",
+      "prompt": "Susun butir Sign In sesuai urutannya pada daftar periksa WHO.",
       "items": [
-        { "id": "i1", "text": "Confirm identity, site, procedure and consent" },
-        { "id": "i2", "text": "Confirm the surgical site is marked" },
-        { "id": "i3", "text": "Confirm the anesthesia safety check is complete" },
-        { "id": "i4", "text": "Confirm the pulse oximeter is on the patient and working" },
-        { "id": "i5", "text": "Ask about known allergy" },
-        { "id": "i6", "text": "Assess difficult airway or aspiration risk" }
+        { "id": "i1", "text": "Konfirmasi identitas, lokasi, prosedur, dan persetujuan" },
+        { "id": "i2", "text": "Konfirmasi lokasi operasi sudah ditandai" },
+        { "id": "i3", "text": "Konfirmasi pemeriksaan keselamatan anestesi sudah lengkap" },
+        { "id": "i4", "text": "Konfirmasi pulse oximeter terpasang pada pasien dan berfungsi" },
+        { "id": "i5", "text": "Tanyakan alergi yang diketahui" },
+        { "id": "i6", "text": "Nilai risiko jalan napas sulit atau aspirasi" }
       ],
-      "explanation": "The WHO Sign In section starts with identity, site, procedure and consent, then site marking, the anesthesia safety check, pulse oximeter, allergy, and difficult airway or aspiration risk.",
-      "takeaway": "Learn the checklist order so no item is skipped under pressure."
+      "explanation": "Bagian Sign In WHO dimulai dari identitas, lokasi, prosedur, dan persetujuan, lalu penandaan lokasi, pemeriksaan keselamatan anestesi, pulse oximeter, alergi, dan risiko jalan napas sulit atau aspirasi.",
+      "takeaway": "Hafalkan urutan daftar periksa agar tidak ada yang terlewat saat tertekan."
     },
     {
-      "id": "s3", "type": "find-error", "title": "Spot the unsafe entries", "tag": "Safety", "critical": true,
-      "instruction": "Select every entry that is incorrect or unsafe.",
-      "prompt": "The team has ticked the following Sign In items. Which entries must be corrected before induction?",
+      "id": "s3", "type": "find-error", "title": "Temukan entri yang tidak aman", "tag": "Keselamatan", "critical": true,
+      "instruction": "Pilih semua entri yang salah atau tidak aman.",
+      "prompt": "Tim telah mencentang butir Sign In berikut. Entri mana yang harus dikoreksi sebelum induksi?",
       "items": [
-        { "id": "c1", "label": "Patient confirmed identity, site, procedure and consent", "correct": false, "why": "Correct confirmation." },
-        { "id": "c2", "label": "Site marking: left knee not marked ('will mark after induction')", "correct": true, "why": "The site must be marked while the patient is awake and can confirm it." },
-        { "id": "c3", "label": "Pulse oximeter on the patient and functioning", "correct": false, "why": "Correct." },
-        { "id": "c4", "label": "Allergy: 'No known allergy' ticked, although the patient reported itching with latex gloves", "correct": true, "why": "A reported latex reaction contradicts the ticked entry and must be clarified and communicated." },
-        { "id": "c5", "label": "Anesthesia safety check (machine and medication) completed", "correct": false, "why": "Correct." },
-        { "id": "c6", "label": "Difficult airway and aspiration risk assessed, equipment available", "correct": false, "why": "Correct." }
+        { "id": "c1", "label": "Pasien mengonfirmasi identitas, lokasi, prosedur, dan persetujuan", "correct": false, "why": "Konfirmasi sudah benar." },
+        { "id": "c2", "label": "Penandaan lokasi: lutut kiri belum ditandai ('ditandai setelah induksi')", "correct": true, "why": "Lokasi harus ditandai saat pasien masih sadar dan dapat mengonfirmasinya." },
+        { "id": "c3", "label": "Pulse oximeter terpasang pada pasien dan berfungsi", "correct": false, "why": "Benar." },
+        { "id": "c4", "label": "Alergi: 'Tidak ada alergi' dicentang, padahal pasien melaporkan gatal dengan sarung tangan lateks", "correct": true, "why": "Reaksi lateks yang dilaporkan bertentangan dengan entri yang dicentang dan harus diklarifikasi serta dikomunikasikan." },
+        { "id": "c5", "label": "Pemeriksaan keselamatan anestesi (mesin dan obat) selesai", "correct": false, "why": "Benar." },
+        { "id": "c6", "label": "Risiko jalan napas sulit dan aspirasi sudah dinilai, alat tersedia", "correct": false, "why": "Benar." }
       ],
-      "explanation": "Two entries are unsafe: the site was not marked while the patient was awake, and the allergy entry contradicts the history. Both must be fixed before induction.",
-      "takeaway": "A ticked box is only safe when it matches the facts."
+      "explanation": "Dua entri tidak aman: lokasi tidak ditandai saat pasien sadar, dan entri alergi bertentangan dengan riwayat. Keduanya harus diperbaiki sebelum induksi.",
+      "takeaway": "Kotak yang dicentang hanya aman jika sesuai dengan fakta."
     },
     {
-      "id": "s4", "type": "equipment", "title": "Machine and equipment check", "tag": "Equipment Preparation", "critical": true,
-      "instruction": "Select the items that must be verified before induction.",
-      "prompt": "Which items belong to the anesthesia machine and equipment check?",
+      "id": "s4", "type": "equipment", "title": "Pemeriksaan mesin dan peralatan", "tag": "Persiapan Peralatan", "critical": true,
+      "instruction": "Pilih item yang harus diverifikasi sebelum induksi.",
+      "prompt": "Item mana yang termasuk pemeriksaan mesin dan peralatan anestesi?",
       "items": [
-        { "id": "e1", "label": "Oxygen supply connected and backup oxygen cylinder available", "correct": true, "why": "Loss of oxygen supply must be covered by a backup." },
-        { "id": "e2", "label": "Breathing circuit leak test performed", "correct": true, "why": "Detects leaks and disconnections." },
-        { "id": "e3", "label": "Self-inflating resuscitation bag ready", "correct": true, "why": "Independent backup for ventilation." },
-        { "id": "e4", "label": "Suction working", "correct": true, "why": "Needed before induction." },
-        { "id": "e5", "label": "Monitor alarms audible and limits appropriate", "correct": true, "why": "Alarms only help when they are on and set correctly." },
-        { "id": "e6", "label": "Gas scavenging system connected", "correct": true, "why": "Protects staff from waste anesthetic gas." },
-        { "id": "e7", "label": "Surgical instrument count sheet", "correct": false, "why": "A surgical team task, not part of the machine check." },
-        { "id": "e8", "label": "Post-operative bed assignment", "correct": false, "why": "Not part of the machine check." },
-        { "id": "e9", "label": "Suture selection for wound closure", "correct": false, "why": "A surgical preparation task." }
+        { "id": "e1", "label": "Suplai oksigen terhubung dan tabung oksigen cadangan tersedia", "correct": true, "why": "Hilangnya suplai oksigen harus ada cadangannya." },
+        { "id": "e2", "label": "Uji kebocoran sirkuit napas dilakukan", "correct": true, "why": "Mendeteksi kebocoran dan lepasnya sambungan." },
+        { "id": "e3", "label": "Self-inflating bag resusitasi siap", "correct": true, "why": "Cadangan ventilasi yang independen." },
+        { "id": "e4", "label": "Suction berfungsi", "correct": true, "why": "Diperlukan sebelum induksi." },
+        { "id": "e5", "label": "Alarm monitor terdengar dan batasnya sesuai", "correct": true, "why": "Alarm hanya berguna bila menyala dan diatur dengan benar." },
+        { "id": "e6", "label": "Sistem scavenging gas terhubung", "correct": true, "why": "Melindungi petugas dari gas anestesi sisa." },
+        { "id": "e7", "label": "Lembar hitung instrumen bedah", "correct": false, "why": "Tugas tim bedah, bukan bagian pemeriksaan mesin." },
+        { "id": "e8", "label": "Penentuan tempat tidur pasca-operasi", "correct": false, "why": "Bukan bagian pemeriksaan mesin." },
+        { "id": "e9", "label": "Pemilihan benang untuk penutupan luka", "correct": false, "why": "Persiapan tim bedah." }
       ],
-      "explanation": "The pre-use check covers oxygen supply and backup, leak test, backup ventilation, suction, monitor alarms and scavenging. Surgical instrument counts, bed assignment and sutures belong to other checks.",
-      "takeaway": "Check what keeps the patient oxygenated, ventilated and monitored."
+      "explanation": "Pemeriksaan pra-pakai mencakup suplai dan cadangan oksigen, uji kebocoran, cadangan ventilasi, suction, alarm monitor, dan scavenging. Hitung instrumen, tempat tidur, dan benang termasuk pemeriksaan lain.",
+      "takeaway": "Periksa hal-hal yang menjaga pasien tetap teroksigenasi, terventilasi, dan termonitor."
     },
     {
-      "id": "s5", "type": "branching", "title": "Failed leak test", "tag": "Equipment Preparation", "critical": true,
-      "situation": "During the circuit leak test the pressure will not hold. You suspect a loose connection but have not found it. The team is waiting.",
-      "prompt": "What should you do?",
+      "id": "s5", "type": "branching", "title": "Uji kebocoran gagal", "tag": "Persiapan Peralatan", "critical": true,
+      "situation": "Saat uji kebocoran sirkuit, tekanan tidak bertahan. Kamu menduga ada sambungan longgar tetapi belum menemukannya. Tim menunggu.",
+      "prompt": "Apa yang harus kamu lakukan?",
       "options": [
-        { "id": "a", "text": "Do not proceed to induction. Recheck connections or replace the circuit or machine, repeat the check and inform the anesthesiologist", "score": 100, "consequence": "Induction is delayed until the equipment is confirmed safe, and the anesthesiologist is informed." },
-        { "id": "b", "text": "Proceed, because a small leak can be compensated with higher fresh gas flow", "score": 0, "consequence": "Starting with a known leak risks inadequate ventilation and delivery of gas to the patient.", "remedial": "r1" },
-        { "id": "c", "text": "Recheck all connections and retest, but tell nobody until it is fixed", "score": 40, "consequence": "Rechecking is right, but the anesthesiologist must be told that the check failed." },
-        { "id": "d", "text": "Skip the leak test, because the machine passed its checks yesterday", "score": 0, "consequence": "The pre-use check must be done before each case.", "remedial": "r1" }
+        { "id": "a", "text": "Tidak melanjutkan ke induksi. Periksa ulang sambungan atau ganti sirkuit atau mesin, ulangi pemeriksaan, dan beri tahu dokter anestesi", "score": 100, "consequence": "Induksi ditunda sampai peralatan terbukti aman, dan dokter anestesi diberi tahu." },
+        { "id": "b", "text": "Lanjut, karena kebocoran kecil bisa dikompensasi dengan aliran gas segar lebih tinggi", "score": 0, "consequence": "Memulai dengan kebocoran yang diketahui berisiko ventilasi tidak adekuat dan gas tidak sampai ke pasien.", "remedial": "r1" },
+        { "id": "c", "text": "Periksa ulang semua sambungan dan uji lagi, tetapi tidak memberi tahu siapa pun sampai selesai diperbaiki", "score": 40, "consequence": "Memeriksa ulang sudah benar, tetapi dokter anestesi harus tahu bahwa pemeriksaan gagal." },
+        { "id": "d", "text": "Lewati uji kebocoran karena mesin lulus pemeriksaan kemarin", "score": 0, "consequence": "Pemeriksaan pra-pakai harus dilakukan sebelum setiap kasus.", "remedial": "r1" }
       ],
-      "explanation": "A failed pre-use check means the machine is not ready. Fix or replace the equipment, repeat the check and inform the anesthesiologist before induction.",
-      "takeaway": "A failed check stops the case until it passes."
+      "explanation": "Pemeriksaan pra-pakai yang gagal berarti mesin belum siap. Perbaiki atau ganti peralatan, ulangi pemeriksaan, dan beri tahu dokter anestesi sebelum induksi.",
+      "takeaway": "Pemeriksaan yang gagal menghentikan kasus sampai lulus."
     },
     {
-      "id": "r1", "type": "mcq", "remedial": true, "title": "Follow-up: replacement circuit", "tag": "Equipment Preparation",
-      "situation": "A replacement breathing circuit has been fitted.",
-      "prompt": "What must happen before the machine is used?",
+      "id": "r1", "type": "mcq", "remedial": true, "title": "Lanjutan: sirkuit pengganti", "tag": "Persiapan Peralatan",
+      "situation": "Sirkuit napas pengganti sudah dipasang.",
+      "prompt": "Apa yang harus dilakukan sebelum mesin digunakan?",
       "options": [
-        { "id": "a", "text": "Repeat the leak test and relevant checks on the new set-up, and confirm the result to the anesthesiologist" },
-        { "id": "b", "text": "Nothing: a new circuit is always safe" },
-        { "id": "c", "text": "Only check that the circuit looks intact" },
-        { "id": "d", "text": "Test it after induction has begun" }
+        { "id": "a", "text": "Ulangi uji kebocoran dan pemeriksaan terkait pada rangkaian baru, lalu laporkan hasilnya ke dokter anestesi" },
+        { "id": "b", "text": "Tidak perlu apa-apa: sirkuit baru selalu aman" },
+        { "id": "c", "text": "Cukup periksa bahwa sirkuit tampak utuh" },
+        { "id": "d", "text": "Uji setelah induksi dimulai" }
       ],
       "correct": "a",
-      "explanation": "Any change to the breathing system requires the checks to be repeated. Visual inspection alone cannot detect a leak.",
-      "takeaway": "Change the equipment, repeat the check."
+      "explanation": "Setiap perubahan pada sistem napas mengharuskan pemeriksaan diulang. Inspeksi visual saja tidak dapat mendeteksi kebocoran.",
+      "takeaway": "Ganti peralatan, ulangi pemeriksaan."
     },
     {
-      "id": "s6", "type": "mcq", "title": "Medication labelling", "tag": "Medication Safety", "critical": true,
-      "situation": "Syringes of anesthetic medication have been drawn up by the team and are on the tray.",
-      "prompt": "What must be true before any medication is given?",
+      "id": "s6", "type": "mcq", "title": "Pelabelan obat", "tag": "Keselamatan Obat", "critical": true,
+      "situation": "Semprit berisi obat anestesi telah disiapkan oleh tim dan berada di nampan.",
+      "prompt": "Apa yang harus terpenuhi sebelum obat apa pun diberikan?",
       "options": [
-        { "id": "a", "text": "Every syringe is clearly labelled (drug name, concentration) and verified before administration" },
-        { "id": "b", "text": "Unlabelled syringes are acceptable if used immediately" },
-        { "id": "c", "text": "Only the first syringe needs a label" },
-        { "id": "d", "text": "Labels can be added after the case" }
+        { "id": "a", "text": "Setiap semprit berlabel jelas (nama obat, konsentrasi) dan diverifikasi sebelum diberikan" },
+        { "id": "b", "text": "Semprit tanpa label boleh selama langsung digunakan" },
+        { "id": "c", "text": "Hanya semprit pertama yang perlu label" },
+        { "id": "d", "text": "Label bisa ditambahkan setelah kasus selesai" }
       ],
       "correct": "a",
-      "explanation": "Unlabelled syringes are a major source of medication errors. Each syringe must be labelled and verified before it is given.",
-      "takeaway": "Label everything, verify before giving."
+      "explanation": "Semprit tanpa label adalah sumber utama kesalahan pemberian obat. Setiap semprit harus diberi label dan diverifikasi sebelum diberikan.",
+      "takeaway": "Beri label pada semuanya, verifikasi sebelum memberikan."
     }
   ]
 }

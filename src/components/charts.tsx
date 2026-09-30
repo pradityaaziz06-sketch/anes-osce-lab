@@ -7,9 +7,9 @@ export function TrendChart({ attempts }: { attempts: Attempt[] }) {
   const x = (i: number) => (pts.length === 1 ? (L + W - R) / 2 : L + (i * (W - L - R)) / (pts.length - 1));
   const y = (v: number) => T + ((100 - v) * (H - T - B)) / 100;
   const line = pts.map((a, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)} ${y(a.final).toFixed(1)}`).join(' ');
-  const summary = pts.map((a, i) => `attempt ${i + 1}: ${a.final}`).join(', ');
+  const summary = pts.map((a, i) => `percobaan ${i + 1}: ${a.final}`).join(', ');
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label={`Score trend. ${summary}`}>
+    <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label={`Tren skor. ${summary}`}>
       {[0, 25, 50, 75, 100].map((g) => (
         <g key={g}>
           <line x1={L} x2={W - R} y1={y(g)} y2={y(g)} stroke="rgba(255,255,255,.08)" />

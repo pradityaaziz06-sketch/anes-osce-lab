@@ -41,8 +41,11 @@ const DIFF_STYLE: Record<Difficulty, string> = {
   INTERMEDIATE: 'border-warn/40 bg-warn/10 text-warn',
   ADVANCED: 'border-blush/50 bg-blush/10 text-blush',
 };
+export const DIFF_LABEL: Record<Difficulty, string> = { BEGINNER: 'PEMULA', INTERMEDIATE: 'MENENGAH', ADVANCED: 'LANJUTAN' };
+export const SYNC_LABEL: Record<string, string> = { local: 'lokal', idle: 'siaga', syncing: 'menyinkronkan', ok: 'berhasil', error: 'gagal' };
+
 export function DifficultyBadge({ level }: { level: Difficulty }) {
-  return <span className={cn('inline-flex items-center rounded-full border px-2.5 py-0.5 text-[11px] font-semibold tracking-wider', DIFF_STYLE[level])}>{level}</span>;
+  return <span className={cn('inline-flex items-center rounded-full border px-2.5 py-0.5 text-[11px] font-semibold tracking-wider', DIFF_STYLE[level])}>{DIFF_LABEL[level]}</span>;
 }
 
 export function Skeleton({ className }: { className?: string }) {
@@ -50,7 +53,7 @@ export function Skeleton({ className }: { className?: string }) {
 }
 export function PageSkeleton() {
   return (
-    <div className="space-y-4" role="status" aria-label="Loading">
+    <div className="space-y-4" role="status" aria-label="Memuat">
       <Skeleton className="h-10 w-2/3" />
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4"><Skeleton className="h-28" /><Skeleton className="h-28" /><Skeleton className="h-28" /><Skeleton className="h-28" /></div>
       <Skeleton className="h-64" />

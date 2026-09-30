@@ -83,7 +83,7 @@ section('3. Worst run: remedial injection, penalties, critical cap');
 LOCAL_CASES.forEach((c) => {
   const { s } = play(c, 'practice', worstResponse, 20_000);
   ok(s.final!.final < 60, `${c.id} worst-run < 60 (got ${s.final!.final})`);
-  ok(s.final!.grade === 'Retry Recommended', `${c.id} worst grade`);
+  ok(s.final!.grade === 'Disarankan Mengulang', `${c.id} worst grade`);
   const hasRemedial = c.steps.some((x) => x.remedial);
   if (hasRemedial) ok(s.queue.length > c.steps.filter((x) => !x.remedial).length, `${c.id} remedial step injected`);
   ok(s.final!.criticalMissed, `${c.id} critical missed flagged`);
@@ -91,11 +91,11 @@ LOCAL_CASES.forEach((c) => {
 });
 
 section('4. Scoring maths');
-ok(gradeFor(100) === 'Excellent' && gradeFor(90) === 'Excellent', 'grade 90+');
-ok(gradeFor(89) === 'Very Good' && gradeFor(80) === 'Very Good', 'grade 80-89');
-ok(gradeFor(79) === 'Good' && gradeFor(70) === 'Good', 'grade 70-79');
-ok(gradeFor(69) === 'Needs Practice' && gradeFor(60) === 'Needs Practice', 'grade 60-69');
-ok(gradeFor(59) === 'Retry Recommended', 'grade <60');
+ok(gradeFor(100) === 'Luar Biasa' && gradeFor(90) === 'Luar Biasa', 'grade 90+');
+ok(gradeFor(89) === 'Sangat Baik' && gradeFor(80) === 'Sangat Baik', 'grade 80-89');
+ok(gradeFor(79) === 'Baik' && gradeFor(70) === 'Baik', 'grade 70-79');
+ok(gradeFor(69) === 'Perlu Latihan' && gradeFor(60) === 'Perlu Latihan', 'grade 60-69');
+ok(gradeFor(59) === 'Disarankan Mengulang', 'grade <60');
 ok(timeScore(0, 600_000) === 100, 'time: instant = 100');
 ok(timeScore(360_000, 600_000) === 100, 'time: 60% = 100');
 ok(timeScore(600_000, 600_000) === 60, 'time: 100% = 60');
@@ -167,7 +167,7 @@ section('8. Streaks, achievements, level, shuffle');
 {
   const mk = (daysAgo: number, extra: Partial<Attempt> = {}): Attempt => {
     const d = new Date(); d.setDate(d.getDate() - daysAgo);
-    return { id: String(Math.random()), caseId: LOCAL_CASES[0].id, mode: 'practice', startedAt: d.toISOString(), durationMs: 1000, final: 90, grade: 'Excellent', breakdown: { accuracy: 90, critical: 100, sequence: 100, time: 100, mistakes: 100 }, mistakes: 0, correctCount: 5, criticalMissed: false, perfect: true, timedOut: false, tagStats: {}, strongest: null, weakest: null, xpGained: 850, queue: [], answers: [], newBadges: [], ...extra } as Attempt;
+    return { id: String(Math.random()), caseId: LOCAL_CASES[0].id, mode: 'practice', startedAt: d.toISOString(), durationMs: 1000, final: 90, grade: 'Luar Biasa', breakdown: { accuracy: 90, critical: 100, sequence: 100, time: 100, mistakes: 100 }, mistakes: 0, correctCount: 5, criticalMissed: false, perfect: true, timedOut: false, tagStats: {}, strongest: null, weakest: null, xpGained: 850, queue: [], answers: [], newBadges: [], ...extra } as Attempt;
   };
   ok(dayStreak([]) === 0, 'empty streak 0');
   ok(dayStreak([mk(0)]) === 1, 'today = 1');

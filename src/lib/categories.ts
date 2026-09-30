@@ -3,13 +3,13 @@ import { Activity, BedDouble, ClipboardList, HeartPulse, PackageCheck, Siren, St
 export interface CategoryMeta { id: string; label: string; icon: LucideIcon }
 
 export const CATEGORIES: CategoryMeta[] = [
-  { id: 'pre-anesthesia', label: 'PRE-ANESTHESIA', icon: ClipboardList },
-  { id: 'airway', label: 'AIRWAY', icon: Wind },
+  { id: 'pre-anesthesia', label: 'PRA-ANESTESI', icon: ClipboardList },
+  { id: 'airway', label: 'JALAN NAPAS', icon: Wind },
   { id: 'monitoring', label: 'MONITORING', icon: Activity },
-  { id: 'preparation', label: 'PREPARATION', icon: PackageCheck },
-  { id: 'intraoperative', label: 'INTRAOPERATIVE', icon: HeartPulse },
-  { id: 'post-anesthesia', label: 'POST-ANESTHESIA', icon: BedDouble },
-  { id: 'emergency', label: 'EMERGENCY', icon: Siren },
+  { id: 'preparation', label: 'PERSIAPAN', icon: PackageCheck },
+  { id: 'intraoperative', label: 'INTRAOPERATIF', icon: HeartPulse },
+  { id: 'post-anesthesia', label: 'PASCA-ANESTESI', icon: BedDouble },
+  { id: 'emergency', label: 'GAWAT DARURAT', icon: Siren },
 ];
 
 /** Unknown categories (added by admins in the database) still render with a sensible label. */

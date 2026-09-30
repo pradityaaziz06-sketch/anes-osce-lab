@@ -26,8 +26,8 @@ export function ChoiceList({ options, value, onChange, locked, mark }: {
               m ? MARK[m] : selected ? 'border-pulse bg-pulse/10 shadow-glow' : 'border-white/12 bg-white/[0.04] hover:border-white/30 hover:bg-white/[0.07]')}>
             <span className={cn('num grid h-8 w-8 shrink-0 place-items-center rounded-xl border text-sm font-semibold', selected ? 'border-pulse bg-pulse text-ink-950' : 'border-white/20 text-slate-300')}>{String.fromCharCode(65 + i)}</span>
             <span className="pt-1">{o.text}</span>
-            {m === 'correct' && <Check size={18} className="ml-auto mt-1 shrink-0 text-ok" aria-label="Best answer" />}
-            {m === 'wrong' && <X size={18} className="ml-auto mt-1 shrink-0 text-bad" aria-label="Your answer, not the best" />}
+            {m === 'correct' && <Check size={18} className="ml-auto mt-1 shrink-0 text-ok" aria-label="Jawaban terbaik" />}
+            {m === 'wrong' && <X size={18} className="ml-auto mt-1 shrink-0 text-bad" aria-label="Jawabanmu, bukan yang terbaik" />}
           </button>
         );
       })}
@@ -43,11 +43,11 @@ function Row({ id, text, index, count, locked, mark, correctPos, onMove }: {
     <Reorder.Item value={id} dragListener={false} dragControls={controls} whileDrag={{ scale: 1.02, boxShadow: '0 12px 40px rgba(34,211,238,.25)' }}
       className={cn('flex items-center gap-3 rounded-2xl border p-3 text-[15px] leading-snug', mark ? MARK[mark] : 'border-white/12 bg-ink-800/80')}>
       <span className="num grid h-8 w-8 shrink-0 place-items-center rounded-xl border border-white/20 text-sm font-semibold text-slate-200">{index + 1}</span>
-      <span className="flex-1">{text}{locked && mark === 'wrong' && correctPos !== undefined && <span className="mt-0.5 block text-xs text-slate-400">Correct position: {correctPos + 1}</span>}</span>
+      <span className="flex-1">{text}{locked && mark === 'wrong' && correctPos !== undefined && <span className="mt-0.5 block text-xs text-slate-400">Posisi benar: {correctPos + 1}</span>}</span>
       {!locked && (
         <span className="flex shrink-0 items-center gap-1">
-          <button type="button" aria-label={`Move up: ${text}`} disabled={index === 0} onClick={() => onMove(index, index - 1)} className="grid h-11 w-9 place-items-center rounded-xl text-slate-300 hover:bg-white/10 disabled:opacity-25"><ArrowUp size={16} /></button>
-          <button type="button" aria-label={`Move down: ${text}`} disabled={index === count - 1} onClick={() => onMove(index, index + 1)} className="grid h-11 w-9 place-items-center rounded-xl text-slate-300 hover:bg-white/10 disabled:opacity-25"><ArrowDown size={16} /></button>
+          <button type="button" aria-label={`Naik: ${text}`} disabled={index === 0} onClick={() => onMove(index, index - 1)} className="grid h-11 w-9 place-items-center rounded-xl text-slate-300 hover:bg-white/10 disabled:opacity-25"><ArrowUp size={16} /></button>
+          <button type="button" aria-label={`Turun: ${text}`} disabled={index === count - 1} onClick={() => onMove(index, index + 1)} className="grid h-11 w-9 place-items-center rounded-xl text-slate-300 hover:bg-white/10 disabled:opacity-25"><ArrowDown size={16} /></button>
           <span onPointerDown={(e) => controls.start(e)} className="grid h-11 w-9 cursor-grab touch-none place-items-center rounded-xl text-slate-400 hover:bg-white/10 active:cursor-grabbing" aria-hidden><GripVertical size={18} /></span>
         </span>
       )}
@@ -66,7 +66,7 @@ export function SequenceList({ items, order, setOrder, locked, correctOrder }: {
     setOrder(next);
   };
   return (
-    <Reorder.Group axis="y" values={order} onReorder={locked ? () => undefined : setOrder} className="grid gap-2.5" aria-label="Sequence. Drag the handle or use the arrow buttons.">
+    <Reorder.Group axis="y" values={order} onReorder={locked ? () => undefined : setOrder} className="grid gap-2.5" aria-label="Urutan. Seret pegangan atau gunakan tombol panah.">
       {order.map((id, i) => (
         <Row key={id} id={id} text={text(id)} index={i} count={order.length} locked={locked} onMove={move}
           mark={locked && correctOrder ? (correctOrder[i] === id ? 'correct' : 'wrong') : undefined}
@@ -91,7 +91,7 @@ export function SelectGrid({ items, selected, onToggle, locked }: {
               className={cn('flex min-h-[56px] w-full items-start gap-3 rounded-2xl border p-3.5 text-left text-[15px] leading-snug transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-pulse disabled:cursor-default',
                 m ? MARK[m] : on ? 'border-pulse bg-pulse/10 shadow-glow' : 'border-white/12 bg-white/[0.04] hover:border-white/30 hover:bg-white/[0.07]')}>
               <span className={cn('mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-lg border', on ? 'border-pulse bg-pulse text-ink-950' : 'border-white/25')}>{on && <Check size={14} strokeWidth={3} />}</span>
-              <span>{it.label}{locked && m === 'missed' && <span className="mt-0.5 block text-xs text-warn">Missed</span>}{locked && m === 'wrong' && <span className="mt-0.5 block text-xs text-bad">Not needed</span>}</span>
+              <span>{it.label}{locked && m === 'missed' && <span className="mt-0.5 block text-xs text-warn">Terlewat</span>}{locked && m === 'wrong' && <span className="mt-0.5 block text-xs text-bad">Tidak perlu</span>}</span>
             </button>
           </li>
         );

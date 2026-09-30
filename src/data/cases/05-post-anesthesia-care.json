@@ -1,131 +1,131 @@
 {
   "id": "post-anesthesia-care",
   "number": 5,
-  "title": "Post-Anesthesia Care Unit",
+  "title": "Ruang Pemulihan Pasca-Anestesi (PACU)",
   "category": "post-anesthesia",
   "difficulty": "INTERMEDIATE",
   "durationMin": 10,
-  "summary": "Receive a patient in the PACU, run a safe handover and react to a drowsy patient with airway obstruction.",
-  "scenario": "A patient has just arrived in the post-anesthesia care unit after general anesthesia. You are the recovery nurse. Prioritise airway and breathing, receive a structured handover, detect unsafe care and respond to a deteriorating patient.",
+  "summary": "Terima pasien di PACU, lakukan serah terima yang aman, dan tanggapi pasien mengantuk dengan sumbatan jalan napas.",
+  "scenario": "Seorang pasien baru tiba di ruang pemulihan pasca-anestesi setelah anestesi umum. Kamu adalah perawat pemulihan. Prioritaskan jalan napas dan pernapasan, terima serah terima terstruktur, kenali perawatan yang tidak aman, dan tanggapi pasien yang memburuk.",
   "objectives": [
-    "Prioritise actions on PACU arrival",
-    "Identify the essential elements of a handover",
-    "Recognise unsafe recovery care",
-    "Respond to airway obstruction in recovery"
+    "Memprioritaskan tindakan saat pasien tiba di PACU",
+    "Mengenali unsur penting serah terima",
+    "Mengenali perawatan pemulihan yang tidak aman",
+    "Merespons sumbatan jalan napas di ruang pemulihan"
   ],
-  "patient": { "sex": "Male", "age": 61, "procedure": "Elective hernia repair, general anesthesia (about 90 minutes)", "note": "Extubated at end of surgery" },
+  "patient": { "sex": "Laki-laki", "age": 61, "procedure": "Perbaikan hernia elektif, anestesi umum (sekitar 90 menit)", "note": "Diekstubasi di akhir operasi" },
   "vitals": { "bp": "138/86", "hr": 88, "spo2": 95, "temp": 35.9, "rr": 12 },
   "history": [
-    "Extubated in the operating room, transferred with oxygen",
-    "No known allergies",
-    "Analgesia plan as ordered by the anesthesiologist (see anesthesia record)"
+    "Diekstubasi di kamar operasi, dipindahkan dengan oksigen",
+    "Tidak ada alergi yang diketahui",
+    "Rencana analgesia sesuai instruksi dokter anestesi (lihat catatan anestesi)"
   ],
   "references": [
     { "title": "Practice Guidelines for Postanesthetic Care", "org": "American Society of Anesthesiologists (ASA)" }
   ],
   "steps": [
     {
-      "id": "s1", "type": "sequence", "title": "Arrival priorities", "tag": "Patient Assessment", "critical": true,
-      "prompt": "Arrange your actions when the patient arrives in the PACU.",
+      "id": "s1", "type": "sequence", "title": "Prioritas saat tiba", "tag": "Asesmen Pasien", "critical": true,
+      "prompt": "Susun tindakanmu saat pasien tiba di PACU.",
       "items": [
-        { "id": "i1", "text": "Check airway patency and breathing, and give supplemental oxygen as ordered" },
-        { "id": "i2", "text": "Attach standard monitors and record initial vital signs" },
-        { "id": "i3", "text": "Receive a structured handover from the anesthesia team" },
-        { "id": "i4", "text": "Assess pain, nausea, temperature and the surgical site" },
-        { "id": "i5", "text": "Document and reassess at regular intervals" }
+        { "id": "i1", "text": "Periksa kepatenan jalan napas dan pernapasan, berikan oksigen tambahan sesuai instruksi" },
+        { "id": "i2", "text": "Pasang monitor standar dan catat tanda vital awal" },
+        { "id": "i3", "text": "Terima serah terima terstruktur dari tim anestesi" },
+        { "id": "i4", "text": "Nilai nyeri, mual, suhu, dan area operasi" },
+        { "id": "i5", "text": "Dokumentasikan dan nilai ulang secara berkala" }
       ],
-      "explanation": "Airway and breathing come first. Monitors give objective data, then the handover fills in context. Symptoms are assessed next, and everything is documented and reassessed at regular intervals.",
-      "takeaway": "Airway and breathing first, then monitors, handover and full assessment."
+      "explanation": "Jalan napas dan pernapasan didahulukan. Monitor memberi data objektif, lalu serah terima melengkapi konteks. Gejala dinilai berikutnya, dan semuanya didokumentasikan serta dinilai ulang secara berkala.",
+      "takeaway": "Jalan napas dan pernapasan dulu, lalu monitor, serah terima, dan penilaian lengkap."
     },
     {
-      "id": "s2", "type": "mcq", "title": "Handover content", "tag": "Handover", "critical": true,
-      "prompt": "Which information is essential in the handover from the anesthesia team?",
+      "id": "s2", "type": "mcq", "title": "Isi serah terima", "tag": "Serah Terima", "critical": true,
+      "prompt": "Informasi mana yang penting dalam serah terima dari tim anestesi?",
       "options": [
-        { "id": "a", "text": "Identity, procedure, anesthetic technique, allergies, intra-operative events and the post-operative plan" },
-        { "id": "b", "text": "Only the surgeon's name and the ward number" },
-        { "id": "c", "text": "Only the drugs that were given" },
-        { "id": "d", "text": "The patient's insurance details" }
+        { "id": "a", "text": "Identitas, prosedur, teknik anestesi, alergi, kejadian selama operasi, dan rencana pasca-operasi" },
+        { "id": "b", "text": "Hanya nama dokter bedah dan nomor bangsal" },
+        { "id": "c", "text": "Hanya obat yang telah diberikan" },
+        { "id": "d", "text": "Data asuransi pasien" }
       ],
       "correct": "a",
-      "explanation": "A good handover gives the recovery nurse what is needed to care for the patient safely: who the patient is, what happened, what to watch for and what the plan is.",
-      "takeaway": "Handover = who, what happened, what to watch for, what next."
+      "explanation": "Serah terima yang baik memberi perawat pemulihan apa yang dibutuhkan untuk merawat pasien dengan aman: siapa pasiennya, apa yang terjadi, apa yang perlu diwaspadai, dan apa rencananya.",
+      "takeaway": "Serah terima = siapa, apa yang terjadi, apa yang diwaspadai, apa selanjutnya."
     },
     {
-      "id": "s3", "type": "find-error", "title": "Recovery care review", "tag": "Safety", "critical": true,
+      "id": "s3", "type": "find-error", "title": "Telaah perawatan pemulihan", "tag": "Keselamatan", "critical": true,
       "vitals": { "spo2": 94, "rr": 12 },
-      "instruction": "Select every entry that shows unsafe care.",
-      "situation": "Fifteen minutes after arrival, you review the recovery record and the bedside.",
-      "prompt": "Which entries are unsafe?",
+      "instruction": "Pilih semua entri yang menunjukkan perawatan tidak aman.",
+      "situation": "Lima belas menit setelah tiba, kamu menelaah catatan pemulihan dan kondisi di sisi tempat tidur.",
+      "prompt": "Entri mana yang tidak aman?",
       "items": [
-        { "id": "c1", "label": "Oxygen supplied; SpO₂ monitored continuously", "correct": false, "why": "Appropriate." },
-        { "id": "c2", "label": "Suction and bag-mask device available at the bedside", "correct": false, "why": "Appropriate." },
-        { "id": "c3", "label": "Pain score documented using a numeric scale", "correct": false, "why": "Appropriate." },
-        { "id": "c4", "label": "Temperature checked, warm blanket provided", "correct": false, "why": "Appropriate for a mildly low temperature." },
-        { "id": "c5", "label": "Snoring respirations noted, no action taken because 'he is just sleeping'", "correct": true, "why": "Snoring is a sign of partial airway obstruction and needs action." },
-        { "id": "c6", "label": "Patient left alone for 20 minutes while staff took a break", "correct": true, "why": "Patients in recovery need continuous observation by a trained person." }
+        { "id": "c1", "label": "Oksigen diberikan; SpO₂ dipantau terus-menerus", "correct": false, "why": "Sesuai." },
+        { "id": "c2", "label": "Suction dan alat bag-mask tersedia di sisi tempat tidur", "correct": false, "why": "Sesuai." },
+        { "id": "c3", "label": "Skor nyeri dicatat dengan skala numerik", "correct": false, "why": "Sesuai." },
+        { "id": "c4", "label": "Suhu diperiksa, selimut hangat diberikan", "correct": false, "why": "Sesuai untuk suhu yang sedikit rendah." },
+        { "id": "c5", "label": "Napas mendengkur tercatat, tidak ada tindakan karena 'dia cuma tidur'", "correct": true, "why": "Mendengkur adalah tanda sumbatan jalan napas parsial dan perlu ditindaklanjuti." },
+        { "id": "c6", "label": "Pasien ditinggal sendirian 20 menit saat petugas istirahat", "correct": true, "why": "Pasien di ruang pemulihan harus diawasi terus-menerus oleh petugas terlatih." }
       ],
-      "explanation": "Snoring indicates partial upper-airway obstruction, and a patient recovering from anesthesia must never be left unobserved.",
-      "takeaway": "Snoring is an airway sign, not a sign of good sleep."
+      "explanation": "Mendengkur menandakan sumbatan jalan napas atas parsial, dan pasien yang sedang pulih dari anestesi tidak boleh ditinggal tanpa pengawasan.",
+      "takeaway": "Mendengkur adalah tanda jalan napas, bukan tanda tidur nyenyak."
     },
     {
-      "id": "s4", "type": "branching", "title": "Drowsy and snoring", "tag": "Emergency Response", "critical": true,
+      "id": "s4", "type": "branching", "title": "Mengantuk dan mendengkur", "tag": "Respons Darurat", "critical": true,
       "vitals": { "spo2": 90, "rr": 8, "hr": 96 },
-      "situation": "The patient is drowsy and making snoring sounds. SpO₂ has fallen to 90% and the respiratory rate is 8 per minute.",
-      "prompt": "What do you do first?",
+      "situation": "Pasien mengantuk dan mengeluarkan suara mendengkur. SpO₂ turun menjadi 90% dan frekuensi napas 8 kali per menit.",
+      "prompt": "Apa yang kamu lakukan pertama kali?",
       "options": [
-        { "id": "a", "text": "Open the airway (chin lift or jaw thrust), stimulate the patient, make sure oxygen is delivered and call the anesthesiologist", "score": 100, "consequence": "The airway is opened, oxygen delivery is confirmed and help is on its way." },
-        { "id": "b", "text": "Increase the oxygen and observe quietly for another 15 minutes", "score": 40, "consequence": "Oxygen helps, but the cause is airway obstruction. Without opening the airway and calling for help, the patient may worsen." },
-        { "id": "c", "text": "Leave him to sleep: snoring is normal after anesthesia", "score": 0, "consequence": "Snoring with falling SpO₂ and slow breathing is not normal. The airway is at risk.", "remedial": "r1" },
-        { "id": "d", "text": "Write the values in the record and continue paperwork", "score": 0, "consequence": "Documentation is important but cannot replace immediate action.", "remedial": "r1" }
+        { "id": "a", "text": "Membuka jalan napas (chin lift atau jaw thrust), menstimulasi pasien, memastikan oksigen terkirim, dan memanggil dokter anestesi", "score": 100, "consequence": "Jalan napas terbuka, pengiriman oksigen terkonfirmasi, dan bantuan sedang datang." },
+        { "id": "b", "text": "Menambah oksigen dan mengamati tenang-tenang selama 15 menit lagi", "score": 40, "consequence": "Oksigen membantu, tetapi penyebabnya adalah sumbatan jalan napas. Tanpa membuka jalan napas dan memanggil bantuan, pasien bisa memburuk." },
+        { "id": "c", "text": "Membiarkannya tidur: mendengkur itu normal setelah anestesi", "score": 0, "consequence": "Mendengkur dengan SpO₂ turun dan napas lambat tidak normal. Jalan napas terancam.", "remedial": "r1" },
+        { "id": "d", "text": "Menulis nilainya di catatan dan melanjutkan pekerjaan administrasi", "score": 0, "consequence": "Dokumentasi penting tetapi tidak bisa menggantikan tindakan segera.", "remedial": "r1" }
       ],
-      "explanation": "Snoring with falling SpO₂ and a slow respiratory rate signals airway obstruction and inadequate ventilation. Open the airway, stimulate, confirm oxygen and get help.",
-      "takeaway": "Airway first: open it, give oxygen, call for help."
+      "explanation": "Mendengkur dengan SpO₂ turun dan frekuensi napas lambat menandakan sumbatan jalan napas dan ventilasi tidak adekuat. Buka jalan napas, stimulasi, pastikan oksigen, dan panggil bantuan.",
+      "takeaway": "Jalan napas dulu: buka, beri oksigen, panggil bantuan."
     },
     {
-      "id": "r1", "type": "mcq", "remedial": true, "title": "Follow-up: no air movement", "tag": "Emergency Response",
+      "id": "r1", "type": "mcq", "remedial": true, "title": "Lanjutan: tidak ada aliran udara", "tag": "Respons Darurat",
       "vitals": { "spo2": 86, "rr": 6, "hr": 108 },
-      "situation": "SpO₂ is 86%. The patient does not respond to your voice and you see chest effort but hear no air movement.",
-      "prompt": "What now?",
+      "situation": "SpO₂ 86%. Pasien tidak merespons panggilan dan kamu melihat usaha napas di dada tetapi tidak mendengar aliran udara.",
+      "prompt": "Apa yang dilakukan sekarang?",
       "options": [
-        { "id": "a", "text": "Call for urgent help and support airway and ventilation with a bag-mask and oxygen until the anesthesiologist arrives" },
-        { "id": "b", "text": "Wait five more minutes" },
-        { "id": "c", "text": "Move the patient to the ward" },
-        { "id": "d", "text": "Ask the family to wake him" }
+        { "id": "a", "text": "Segera memanggil bantuan dan mendukung jalan napas serta ventilasi dengan bag-mask dan oksigen sampai dokter anestesi datang" },
+        { "id": "b", "text": "Menunggu lima menit lagi" },
+        { "id": "c", "text": "Memindahkan pasien ke bangsal" },
+        { "id": "d", "text": "Meminta keluarga membangunkannya" }
       ],
       "correct": "a",
-      "explanation": "Chest effort without air movement means a complete airway obstruction. It is an emergency: call for help and support the airway and ventilation immediately.",
-      "takeaway": "Effort without air movement is an emergency. Call for help and support the airway."
+      "explanation": "Usaha napas di dada tanpa aliran udara berarti sumbatan jalan napas total. Ini keadaan darurat: panggil bantuan dan segera dukung jalan napas serta ventilasi.",
+      "takeaway": "Usaha napas tanpa aliran udara adalah keadaan darurat. Panggil bantuan dan dukung jalan napas."
     },
     {
-      "id": "s5", "type": "mcq", "title": "Recovery scoring", "tag": "Patient Assessment",
-      "prompt": "Which parameters make up the modified Aldrete score, commonly used to judge readiness to leave the PACU?",
+      "id": "s5", "type": "mcq", "title": "Skor pemulihan", "tag": "Asesmen Pasien",
+      "prompt": "Parameter apa saja yang menyusun skor Aldrete yang dimodifikasi, yang lazim dipakai untuk menilai kesiapan keluar dari PACU?",
       "options": [
-        { "id": "a", "text": "Activity, respiration, circulation, consciousness and oxygen saturation" },
-        { "id": "b", "text": "Heart rate, hemoglobin, glucose, sodium and potassium" },
-        { "id": "c", "text": "Pain score only" },
-        { "id": "d", "text": "Duration of surgery, type of surgery, surgeon and blood loss" }
+        { "id": "a", "text": "Aktivitas, pernapasan, sirkulasi, kesadaran, dan saturasi oksigen" },
+        { "id": "b", "text": "Laju jantung, hemoglobin, glukosa, natrium, dan kalium" },
+        { "id": "c", "text": "Skor nyeri saja" },
+        { "id": "d", "text": "Lama operasi, jenis operasi, dokter bedah, dan jumlah perdarahan" }
       ],
       "correct": "a",
-      "explanation": "The modified Aldrete score covers five areas: activity, respiration, circulation, consciousness and oxygen saturation. Many units also use additional criteria such as pain and nausea.",
-      "takeaway": "Aldrete: activity, respiration, circulation, consciousness, SpO₂."
+      "explanation": "Skor Aldrete yang dimodifikasi mencakup lima area: aktivitas, pernapasan, sirkulasi, kesadaran, dan saturasi oksigen. Banyak unit juga memakai kriteria tambahan seperti nyeri dan mual.",
+      "takeaway": "Aldrete: aktivitas, pernapasan, sirkulasi, kesadaran, SpO₂."
     },
     {
-      "id": "s6", "type": "equipment", "title": "Bedside readiness", "tag": "Equipment Preparation",
-      "instruction": "Select the items that should be ready at every PACU bedside.",
-      "prompt": "Which equipment do you prepare?",
+      "id": "s6", "type": "equipment", "title": "Kesiapan sisi tempat tidur", "tag": "Persiapan Peralatan",
+      "instruction": "Pilih item yang harus siap di setiap tempat tidur PACU.",
+      "prompt": "Peralatan mana yang kamu siapkan?",
       "items": [
-        { "id": "e1", "label": "Oxygen source with delivery devices", "correct": true, "why": "Supplemental oxygen is standard." },
-        { "id": "e2", "label": "Suction with catheters", "correct": true, "why": "Needed for vomiting or secretions." },
-        { "id": "e3", "label": "Bag-valve-mask", "correct": true, "why": "For assisted ventilation." },
-        { "id": "e4", "label": "Oral and nasal airways", "correct": true, "why": "For airway obstruction." },
-        { "id": "e5", "label": "Continuous ECG, SpO₂ and blood pressure monitoring", "correct": true, "why": "Early detection of deterioration." },
-        { "id": "e6", "label": "Emergency call system and access to a resuscitation trolley", "correct": true, "why": "Help must be reachable quickly." },
-        { "id": "e7", "label": "Surgical instrument set", "correct": false, "why": "Belongs in the operating room." },
-        { "id": "e8", "label": "Anesthesia gas vaporizer", "correct": false, "why": "Part of the anesthesia machine, not the recovery bed." },
-        { "id": "e9", "label": "Sterile surgical drapes", "correct": false, "why": "Not needed for routine recovery." }
+        { "id": "e1", "label": "Sumber oksigen dengan alat penghantar", "correct": true, "why": "Oksigen tambahan adalah standar." },
+        { "id": "e2", "label": "Suction dengan kateter", "correct": true, "why": "Diperlukan untuk muntah atau sekret." },
+        { "id": "e3", "label": "Bag-valve-mask", "correct": true, "why": "Untuk ventilasi bantu." },
+        { "id": "e4", "label": "Alat jalan napas oral dan nasal", "correct": true, "why": "Untuk sumbatan jalan napas." },
+        { "id": "e5", "label": "Monitoring EKG, SpO₂, dan tekanan darah kontinu", "correct": true, "why": "Deteksi dini perburukan." },
+        { "id": "e6", "label": "Sistem panggil darurat dan akses ke troli resusitasi", "correct": true, "why": "Bantuan harus dapat dijangkau dengan cepat." },
+        { "id": "e7", "label": "Set instrumen bedah", "correct": false, "why": "Tempatnya di kamar operasi." },
+        { "id": "e8", "label": "Vaporizer gas anestesi", "correct": false, "why": "Bagian dari mesin anestesi, bukan tempat tidur pemulihan." },
+        { "id": "e9", "label": "Duk bedah steril", "correct": false, "why": "Tidak diperlukan untuk pemulihan rutin." }
       ],
-      "explanation": "The bedside needs oxygen, suction, ventilation and airway equipment, monitors and a way to call for help. Operating-room items do not belong there.",
-      "takeaway": "Every recovery bed is ready for an airway emergency."
+      "explanation": "Sisi tempat tidur membutuhkan oksigen, suction, alat ventilasi dan jalan napas, monitor, serta cara memanggil bantuan. Item kamar operasi tidak diperlukan di sana.",
+      "takeaway": "Setiap tempat tidur pemulihan siap menghadapi kedaruratan jalan napas."
     }
   ]
 }

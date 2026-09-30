@@ -29,8 +29,8 @@ export function XpBar({ level, compact = false }: { level: LevelInfo; compact?: 
         <span className="font-display text-lg font-semibold">Level {level.level}</span>
         <span className="num text-xs text-slate-300">{level.current} / {level.need} XP</span>
       </div>
-      <ProgressBar value={level.pct} className="mt-3" label={`Progress to level ${level.level + 1}`} />
-      <p className="mt-2 text-xs text-slate-400">{level.total} XP earned in total</p>
+      <ProgressBar value={level.pct} className="mt-3" label={`Progres menuju level ${level.level + 1}`} />
+      <p className="mt-2 text-xs text-slate-400">{level.total} XP terkumpul</p>
     </div>
   );
 }
@@ -38,7 +38,7 @@ export function XpBar({ level, compact = false }: { level: LevelInfo; compact?: 
 export function CategoryCard({ meta, total, done }: { meta: CategoryMeta; total: number; done: number }) {
   const Icon = meta.icon;
   const pct = total ? Math.round((done / total) * 100) : 0;
-  const action = done === 0 ? 'START' : done < total ? 'CONTINUE' : 'PRACTICE AGAIN';
+  const action = done === 0 ? 'MULAI' : done < total ? 'LANJUTKAN' : 'LATIH LAGI';
   return (
     <div className={cn('glass flex flex-col p-5', total === 0 && 'opacity-70')}>
       <div className="flex items-start justify-between">
@@ -46,14 +46,14 @@ export function CategoryCard({ meta, total, done }: { meta: CategoryMeta; total:
         <span className="num text-xs text-slate-400">{done}/{total}</span>
       </div>
       <h3 className="mt-4 font-display text-[15px] font-semibold tracking-wide">{meta.label}</h3>
-      <p className="text-sm text-slate-300">{total} {total === 1 ? 'Case' : 'Cases'}</p>
-      <ProgressBar value={pct} className="mt-4" tone={pct === 100 ? 'ok' : 'pulse'} label={`${meta.label} progress`} />
-      <p className="mt-1.5 text-xs text-slate-400">{total ? `${done}/${total} completed` : 'No cases published yet'}</p>
+      <p className="text-sm text-slate-300">{total} Kasus</p>
+      <ProgressBar value={pct} className="mt-4" tone={pct === 100 ? 'ok' : 'pulse'} label={`Progres ${meta.label}`} />
+      <p className="mt-1.5 text-xs text-slate-400">{total ? `${done}/${total} selesai` : 'Belum ada kasus'}</p>
       <div className="mt-auto pt-4">
         {total > 0 ? (
           <Link href={`/stations?category=${meta.id}`} className="btn btn-ghost w-full">{action}</Link>
         ) : (
-          <span className="chip">Coming soon</span>
+          <span className="chip">Segera hadir</span>
         )}
       </div>
     </div>
@@ -74,22 +74,22 @@ export function StationCard({ c, stat }: { c: CaseData; stat?: CaseStat }) {
       <p className="mt-3 text-sm leading-relaxed text-slate-300">{c.summary}</p>
       <dl className="mt-4 grid grid-cols-3 gap-2 text-xs">
         <div className="rounded-xl bg-white/[0.05] p-2.5">
-          <dt className="text-slate-400">Time</dt>
-          <dd className="num mt-0.5 flex items-center gap-1 font-semibold"><Clock size={12} aria-hidden />{c.durationMin} min</dd>
+          <dt className="text-slate-400">Waktu</dt>
+          <dd className="num mt-0.5 flex items-center gap-1 font-semibold"><Clock size={12} aria-hidden />{c.durationMin} mnt</dd>
         </div>
         <div className="rounded-xl bg-white/[0.05] p-2.5">
           <dt className="text-slate-400">Status</dt>
           <dd className={cn('mt-0.5 flex items-center gap-1 font-semibold', stat?.completed ? 'text-ok' : 'text-slate-200')}>
-            {stat?.completed ? <><CheckCircle2 size={12} aria-hidden />Done</> : 'New'}
+            {stat?.completed ? <><CheckCircle2 size={12} aria-hidden />Selesai</> : 'Baru'}
           </dd>
         </div>
         <div className="rounded-xl bg-white/[0.05] p-2.5">
-          <dt className="text-slate-400">Best</dt>
+          <dt className="text-slate-400">Terbaik</dt>
           <dd className="num mt-0.5 font-semibold">{stat ? stat.best : '—'}</dd>
         </div>
       </dl>
-      <Link href={`/simulate/${c.id}`} className={cn('btn mt-5 w-full', stat?.completed ? 'btn-ghost' : 'btn-primary')} aria-label={`${stat?.completed ? 'Retry' : 'Start'} station ${c.number}: ${c.title}`}>
-        {stat?.completed ? <><RotateCcw size={16} aria-hidden />RETRY STATION</> : <><Play size={16} aria-hidden />START STATION</>}
+      <Link href={`/simulate/${c.id}`} className={cn('btn mt-5 w-full', stat?.completed ? 'btn-ghost' : 'btn-primary')} aria-label={`${stat?.completed ? 'Ulangi' : 'Mulai'} station ${c.number}: ${c.title}`}>
+        {stat?.completed ? <><RotateCcw size={16} aria-hidden />ULANGI STATION</> : <><Play size={16} aria-hidden />MULAI STATION</>}
       </Link>
     </article>
   );
@@ -108,9 +108,9 @@ export function BadgeGrid({ unlocked, highlight = [] }: { unlocked: Record<strin
             <span className={cn('grid h-11 w-11 shrink-0 place-items-center rounded-2xl border', on ? 'border-blush/50 bg-blush/10 text-blush' : 'border-white/10 bg-white/5 text-slate-500')}><Icon size={20} aria-hidden /></span>
             <span className="min-w-0">
               <span className="block truncate text-sm font-semibold">{a.label}</span>
-              <span className="block text-xs leading-snug text-slate-400">{on ? 'Unlocked' : a.desc}</span>
+              <span className="block text-xs leading-snug text-slate-400">{on ? 'Terbuka' : a.desc}</span>
             </span>
-            {on && <Award size={14} className="ml-auto shrink-0 text-blush" aria-label="Unlocked" />}
+            {on && <Award size={14} className="ml-auto shrink-0 text-blush" aria-label="Terbuka" />}
           </li>
         );
       })}

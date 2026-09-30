@@ -111,22 +111,22 @@ export default function SimulationRunner({ caseData }: { caseData: CaseData }) {
       <header className="sticky top-0 z-40 border-b border-white/10 bg-ink-950/85 backdrop-blur-xl">
         <div className="mx-auto max-w-6xl px-4 py-2.5 sm:px-6">
           <div className="flex items-center gap-3">
-            <button type="button" onClick={() => (state.phase === 'brief' ? router.push('/stations') : setExitOpen(true))} aria-label="Leave station" className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10"><X size={18} /></button>
+            <button type="button" onClick={() => (state.phase === 'brief' ? router.push('/stations') : setExitOpen(true))} aria-label="Tinggalkan station" className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10"><X size={18} /></button>
             <div className="min-w-0 flex-1">
               <p className="label truncate">STATION {String(caseData.number).padStart(2, '0')}</p>
               <h1 className="truncate font-display text-sm font-semibold sm:text-base">{caseData.title.toUpperCase()}</h1>
             </div>
             <div className="text-right">
-              <p className="label">{overtime ? 'OVERTIME' : 'TIMER'}</p>
-              <p className={cn('num text-2xl font-semibold leading-none sm:text-3xl', timerTone)} role="timer" aria-label={`Time remaining ${timerText}`}>{timerText}</p>
+              <p className="label">{overtime ? 'LEMBUR' : 'TIMER'}</p>
+              <p className={cn('num text-2xl font-semibold leading-none sm:text-3xl', timerTone)} role="timer" aria-label={`Sisa waktu ${timerText}`}>{timerText}</p>
             </div>
           </div>
-          <div className="mt-2.5 flex items-center gap-2 overflow-x-auto text-xs" aria-label="Session stats">
-            <span className="chip shrink-0"><span className="text-slate-400">SCORE</span><b className="num">{exam ? '—' : state.points}</b></span>
-            <span className="chip shrink-0"><XCircle size={12} className="text-bad" aria-hidden /><span className="text-slate-400">MISTAKES</span><b className="num">{exam ? '—' : state.mistakes}</b></span>
+          <div className="mt-2.5 flex items-center gap-2 overflow-x-auto text-xs" aria-label="Statistik sesi">
+            <span className="chip shrink-0"><span className="text-slate-400">SKOR</span><b className="num">{exam ? '—' : state.points}</b></span>
+            <span className="chip shrink-0"><XCircle size={12} className="text-bad" aria-hidden /><span className="text-slate-400">SALAH</span><b className="num">{exam ? '—' : state.mistakes}</b></span>
             <span className="chip shrink-0"><Flame size={12} className="text-blush" aria-hidden /><span className="text-slate-400">STREAK</span><b className="num">{exam ? '—' : state.streak}</b></span>
-            {exam && state.phase !== 'brief' && <span className="chip shrink-0 border-blush/40 text-blush"><Lock size={11} aria-hidden />EXAM MODE</span>}
-            <span className="num ml-auto shrink-0 font-semibold tracking-wider text-slate-300">{state.phase === 'brief' ? 'BRIEFING' : `STEP ${Math.min(state.index + 1, total)} / ${total}`}</span>
+            {exam && state.phase !== 'brief' && <span className="chip shrink-0 border-blush/40 text-blush"><Lock size={11} aria-hidden />MODE UJIAN</span>}
+            <span className="num ml-auto shrink-0 font-semibold tracking-wider text-slate-300">{state.phase === 'brief' ? 'BRIEFING' : `LANGKAH ${Math.min(state.index + 1, total)} / ${total}`}</span>
           </div>
           <div className="mt-2 flex gap-1" aria-hidden>
             {state.queue.map((id, i) => (
@@ -146,18 +146,18 @@ export default function SimulationRunner({ caseData }: { caseData: CaseData }) {
                 <span className="chip">{cat.label}</span>
                 <span className="chip num"><Clock size={12} aria-hidden />{caseData.durationMin} min</span>
               </div>
-              <h2 className="mt-4 font-display text-2xl font-semibold">Scenario</h2>
+              <h2 className="mt-4 font-display text-2xl font-semibold">Skenario</h2>
               <p className="mt-2 leading-relaxed text-slate-200">{caseData.scenario}</p>
-              <h3 className="label mt-6">Objectives</h3>
+              <h3 className="label mt-6">Tujuan</h3>
               <ul className="mt-2 space-y-1.5 text-sm text-slate-200">{caseData.objectives.map((o) => <li key={o} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-pulse" aria-hidden />{o}</li>)}</ul>
               {caseData.references && caseData.references.length > 0 && (
-                <p className="mt-5 flex gap-2 text-xs leading-relaxed text-slate-400"><BookOpen size={14} className="mt-0.5 shrink-0" aria-hidden /><span>References: {caseData.references.map((r) => r.title + (r.org ? ` (${r.org})` : '')).join('; ')}. Always follow your institution&apos;s protocol.</span></p>
+                <p className="mt-5 flex gap-2 text-xs leading-relaxed text-slate-400"><BookOpen size={14} className="mt-0.5 shrink-0" aria-hidden /><span>Rujukan: {caseData.references.map((r) => r.title + (r.org ? ` (${r.org})` : '')).join('; ')}. Selalu ikuti protokol institusimu.</span></p>
               )}
-              <h3 className="label mt-7">Choose mode</h3>
+              <h3 className="label mt-7">Pilih mode</h3>
               <div role="radiogroup" aria-label="Mode" className="mt-2 grid gap-3 sm:grid-cols-2">
                 {([
-                  ['practice', 'PRACTICE MODE', 'Instant feedback after each step, explanations, timer pauses while you read.'],
-                  ['exam', 'EXAM MODE', 'Timer keeps running, no feedback until the end, station stops when time is up.'],
+                  ['practice', 'MODE LATIHAN', 'Feedback langsung setiap langkah, ada penjelasan, timer berhenti saat kamu membaca.'],
+                  ['exam', 'MODE UJIAN', 'Timer terus berjalan, tanpa feedback sampai selesai, station berhenti saat waktu habis.'],
                 ] as const).map(([m, t, d]) => (
                   <button key={m} type="button" role="radio" aria-checked={modeChoice === m} onClick={() => { setModeChoice(m); sfx.click(); }}
                     className={cn('min-h-[72px] rounded-2xl border p-4 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-pulse', modeChoice === m ? 'border-pulse bg-pulse/10 shadow-glow' : 'border-white/12 bg-white/[0.04] hover:bg-white/[0.07]')}>
@@ -166,7 +166,7 @@ export default function SimulationRunner({ caseData }: { caseData: CaseData }) {
                   </button>
                 ))}
               </div>
-              <button type="button" onClick={() => { sfx.click(); dispatch({ type: 'START', mode: modeChoice }); }} className="btn btn-primary mt-7 w-full sm:w-auto sm:min-w-[240px]"><Play size={16} aria-hidden />START TIMER</button>
+              <button type="button" onClick={() => { sfx.click(); dispatch({ type: 'START', mode: modeChoice }); }} className="btn btn-primary mt-7 w-full sm:w-auto sm:min-w-[240px]"><Play size={16} aria-hidden />MULAI TIMER</button>
             </section>
           </div>
         ) : step ? (
@@ -185,14 +185,14 @@ export default function SimulationRunner({ caseData }: { caseData: CaseData }) {
           </div>
         ) : null}
 
-        <p className="mt-10 text-xs text-slate-500">Educational simulation only. Not intended to replace faculty instruction, institutional protocols, or clinical supervision.</p>
+        <p className="mt-10 text-xs text-slate-500">Hanya simulasi edukasi. Tidak dimaksudkan menggantikan bimbingan dosen, protokol institusi, atau supervisi klinis.</p>
       </main>
 
-      <Modal open={exitOpen} title="Leave this station?" onClose={() => setExitOpen(false)}>
-        <p>Your progress in this run will be lost and no score will be saved.</p>
+      <Modal open={exitOpen} title="Tinggalkan station ini?" onClose={() => setExitOpen(false)}>
+        <p>Progresmu pada percobaan ini akan hilang dan skor tidak disimpan.</p>
         <div className="mt-5 flex flex-col gap-2 sm:flex-row-reverse">
-          <button className="btn btn-danger" onClick={() => router.push('/stations')}>Leave station</button>
-          <button className="btn btn-ghost" data-autofocus onClick={() => setExitOpen(false)}>Keep going</button>
+          <button className="btn btn-danger" onClick={() => router.push('/stations')}>Tinggalkan station</button>
+          <button className="btn btn-ghost" data-autofocus onClick={() => setExitOpen(false)}>Lanjutkan</button>
         </div>
       </Modal>
     </div>
@@ -231,18 +231,18 @@ function Challenge({ step, seed, locked, exam, record, isLast, onSubmit, onNext 
     <section className="glass p-5 sm:p-7" aria-label="Challenge">
       <div className="flex flex-wrap items-center gap-2">
         <span className="chip border-pulse/40 text-pulse">{TYPE_LABEL[step.type]}</span>
-        {step.remedial && <span className="chip border-blush/40 text-blush"><ShieldAlert size={12} aria-hidden />FOLLOW-UP</span>}
+        {step.remedial && <span className="chip border-blush/40 text-blush"><ShieldAlert size={12} aria-hidden />LANJUTAN</span>}
         {step.title && <span className="text-xs font-medium tracking-wide text-slate-400">{step.title}</span>}
       </div>
       {step.situation && (
         <div className="mt-4 flex gap-3 rounded-2xl border border-warn/30 bg-warn/10 p-4 text-sm leading-relaxed">
           <AlertTriangle size={18} className="mt-0.5 shrink-0 text-warn" aria-hidden />
-          <p><span className="label mr-2 text-warn">SITUATION</span>{step.situation}</p>
+          <p><span className="label mr-2 text-warn">SITUASI</span>{step.situation}</p>
         </div>
       )}
       <h2 className="mt-5 font-display text-xl font-semibold leading-snug sm:text-2xl">{step.prompt}</h2>
       {'instruction' in step && step.instruction && <p className="mt-1.5 text-sm text-slate-300">{step.instruction}</p>}
-      {step.type === 'sequence' && <p className="mt-1.5 text-sm text-slate-300">Drag the handle on the right, or use the arrow buttons to reorder.</p>}
+      {step.type === 'sequence' && <p className="mt-1.5 text-sm text-slate-300">Seret pegangan di kanan, atau gunakan tombol panah untuk mengurutkan.</p>}
 
       <div className="mt-5">
         {(step.type === 'mcq' || step.type === 'branching') && (
@@ -259,9 +259,9 @@ function Challenge({ step, seed, locked, exam, record, isLast, onSubmit, onNext 
 
       {!locked && (
         <div className="mt-6 flex flex-wrap items-center gap-3">
-          <button type="button" disabled={!valid} onClick={() => onSubmit(response)} className="btn btn-primary w-full sm:w-auto sm:min-w-[220px]">{exam ? 'CONFIRM & CONTINUE' : 'CONFIRM ANSWER'}</button>
-          {(step.type === 'equipment' || step.type === 'find-error') && <span className="text-sm text-slate-400">{picked.length} selected</span>}
-          {!valid && step.type !== 'sequence' && <span className="text-sm text-slate-400">{step.type === 'mcq' || step.type === 'branching' ? 'Choose one answer' : 'Select at least one item'}</span>}
+          <button type="button" disabled={!valid} onClick={() => onSubmit(response)} className="btn btn-primary w-full sm:w-auto sm:min-w-[220px]">{exam ? 'KONFIRMASI & LANJUT' : 'KONFIRMASI JAWABAN'}</button>
+          {(step.type === 'equipment' || step.type === 'find-error') && <span className="text-sm text-slate-400">{picked.length} dipilih</span>}
+          {!valid && step.type !== 'sequence' && <span className="text-sm text-slate-400">{step.type === 'mcq' || step.type === 'branching' ? 'Pilih satu jawaban' : 'Pilih minimal satu item'}</span>}
         </div>
       )}
       {locked && record && !exam && <div className="mt-6"><FeedbackPanel ref={fbRef} step={step} record={record} lastStep={isLast} onNext={onNext} /></div>}

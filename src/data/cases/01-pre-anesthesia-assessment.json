@@ -1,25 +1,25 @@
 {
   "id": "pre-anesthesia-assessment",
   "number": 1,
-  "title": "Pre-Anesthesia Assessment",
+  "title": "Asesmen Pra-Anestesi",
   "category": "pre-anesthesia",
   "difficulty": "BEGINNER",
   "durationMin": 10,
-  "summary": "Assess an elective patient in the pre-operative holding area and pass the key findings to the anesthesia team.",
-  "scenario": "You are the anesthesia nurse in the pre-operative holding area. A patient is scheduled for elective surgery this morning. Complete a structured pre-anesthesia assessment and make sure the anesthesia team knows everything relevant before induction.",
+  "summary": "Lakukan asesmen pasien elektif di ruang persiapan pra-operasi dan sampaikan temuan penting kepada tim anestesi.",
+  "scenario": "Kamu adalah perawat anestesi di ruang persiapan pra-operasi. Seorang pasien dijadwalkan operasi elektif pagi ini. Lengkapi asesmen pra-anestesi secara terstruktur dan pastikan tim anestesi mengetahui semua informasi penting sebelum induksi.",
   "objectives": [
-    "Identify the patient and procedure correctly",
-    "Follow a logical pre-anesthesia assessment workflow",
-    "Detect safety gaps in a pre-operative checklist",
-    "Communicate and document new allergy information"
+    "Mengidentifikasi pasien dan prosedur dengan benar",
+    "Mengikuti alur asesmen pra-anestesi yang logis",
+    "Menemukan celah keselamatan pada daftar periksa pra-operasi",
+    "Mengomunikasikan dan mendokumentasikan informasi alergi baru"
   ],
-  "patient": { "sex": "Female", "age": 38, "procedure": "Elective laparoscopic cholecystectomy", "note": "BMI 24, non-smoker" },
+  "patient": { "sex": "Perempuan", "age": 38, "procedure": "Kolesistektomi laparoskopik elektif", "note": "IMT 24, tidak merokok" },
   "vitals": { "bp": "128/78", "hr": 82, "spo2": 98, "temp": 36.7, "rr": 16 },
   "history": [
-    "No chronic illness; no regular medication",
-    "Previous appendectomy under general anesthesia 10 years ago, no complications reported",
-    "Non-smoker, no alcohol",
-    "Chart entry from booking: 'No known allergies'"
+    "Tidak ada penyakit kronis; tidak minum obat rutin",
+    "Pernah apendektomi dengan anestesi umum 10 tahun lalu, tidak ada komplikasi yang dilaporkan",
+    "Tidak merokok, tidak minum alkohol",
+    "Catatan di status saat pendaftaran: 'Tidak ada alergi yang diketahui'"
   ],
   "references": [
     { "title": "Practice Advisory for Preanesthesia Evaluation", "org": "American Society of Anesthesiologists (ASA)" },
@@ -28,114 +28,114 @@
   ],
   "steps": [
     {
-      "id": "s1", "type": "mcq", "title": "First contact", "tag": "Patient Identification", "critical": true,
-      "prompt": "The patient has just arrived in the holding area. What do you do FIRST?",
+      "id": "s1", "type": "mcq", "title": "Kontak pertama", "tag": "Identifikasi Pasien", "critical": true,
+      "prompt": "Pasien baru tiba di ruang persiapan. Apa yang kamu lakukan PERTAMA?",
       "options": [
-        { "id": "a", "text": "Verify identity with two identifiers and confirm the planned procedure with the patient and the chart" },
-        { "id": "b", "text": "Start examining the patient's airway" },
-        { "id": "c", "text": "Ask the patient to sign the consent form straight away" },
-        { "id": "d", "text": "Give premedication to reduce anxiety" }
+        { "id": "a", "text": "Memverifikasi identitas dengan dua identitas pasien dan mengonfirmasi prosedur yang direncanakan bersama pasien dan status" },
+        { "id": "b", "text": "Langsung memeriksa jalan napas pasien" },
+        { "id": "c", "text": "Meminta pasien segera menandatangani formulir persetujuan" },
+        { "id": "d", "text": "Memberikan premedikasi untuk mengurangi kecemasan" }
       ],
       "correct": "a",
-      "explanation": "Correct identification and confirmation of the planned procedure prevents wrong-patient and wrong-procedure errors. It comes before any assessment, consent discussion or medication.",
-      "takeaway": "Identify the patient and the procedure first. Every other step depends on it."
+      "explanation": "Identifikasi yang benar dan konfirmasi prosedur mencegah kesalahan pasien dan kesalahan prosedur. Langkah ini dilakukan sebelum asesmen, diskusi persetujuan, atau pemberian obat apa pun.",
+      "takeaway": "Kenali pasien dan prosedurnya lebih dulu. Semua langkah lain bergantung pada ini."
     },
     {
-      "id": "s2", "type": "sequence", "title": "Assessment workflow", "tag": "Patient Assessment",
-      "prompt": "Arrange the pre-anesthesia assessment in a logical order.",
+      "id": "s2", "type": "sequence", "title": "Alur asesmen", "tag": "Asesmen Pasien",
+      "prompt": "Susun alur asesmen pra-anestesi dalam urutan yang logis.",
       "items": [
-        { "id": "i1", "text": "Review medical, surgical and previous anesthesia history" },
-        { "id": "i2", "text": "Confirm allergies, current medication and other safety questions" },
-        { "id": "i3", "text": "Perform a focused physical examination, including the airway" },
-        { "id": "i4", "text": "Review relevant investigations" },
-        { "id": "i5", "text": "Confirm informed consent is documented and understood" },
-        { "id": "i6", "text": "Record the assessment and communicate findings to the anesthesia team" }
+        { "id": "i1", "text": "Menelaah riwayat penyakit, pembedahan, dan anestesi sebelumnya" },
+        { "id": "i2", "text": "Memastikan alergi, obat yang sedang dikonsumsi, dan pertanyaan keselamatan lainnya" },
+        { "id": "i3", "text": "Melakukan pemeriksaan fisik terfokus, termasuk jalan napas" },
+        { "id": "i4", "text": "Menelaah pemeriksaan penunjang yang relevan" },
+        { "id": "i5", "text": "Memastikan persetujuan tindakan sudah terdokumentasi dan dipahami pasien" },
+        { "id": "i6", "text": "Mencatat hasil asesmen dan menyampaikan temuan kepada tim anestesi" }
       ],
-      "explanation": "History guides what to look for on examination, and both guide which investigations are relevant. Consent is confirmed once the plan is clear, and the findings are recorded and communicated last. Institutions may vary slightly; this station follows a history, examination, investigations, consent, communication flow.",
-      "takeaway": "History first, examination second, then investigations, consent and communication."
+      "explanation": "Riwayat memandu apa yang dicari saat pemeriksaan, dan keduanya menentukan pemeriksaan penunjang yang relevan. Persetujuan dipastikan setelah rencana jelas, dan temuan dicatat serta dikomunikasikan paling akhir. Urutan bisa sedikit berbeda antar institusi; station ini mengikuti alur riwayat, pemeriksaan, penunjang, persetujuan, komunikasi.",
+      "takeaway": "Riwayat dulu, lalu pemeriksaan, penunjang, persetujuan, dan komunikasi."
     },
     {
-      "id": "s3", "type": "find-error", "title": "Checklist review", "tag": "Safety", "critical": true,
-      "instruction": "Select every entry that is incorrect or unsafe.",
-      "prompt": "Review the pre-operative checklist below. Which entries need to be corrected before the patient goes to the operating room?",
+      "id": "s3", "type": "find-error", "title": "Telaah daftar periksa", "tag": "Keselamatan", "critical": true,
+      "instruction": "Pilih semua entri yang salah atau tidak aman.",
+      "prompt": "Telaah daftar periksa pra-operasi di bawah. Entri mana yang harus dikoreksi sebelum pasien dibawa ke kamar operasi?",
       "items": [
-        { "id": "c1", "label": "Identity band matches chart: name and date of birth checked", "correct": false, "why": "Appropriate identity check." },
-        { "id": "c2", "label": "Planned procedure on the consent form matches the operating list", "correct": false, "why": "Consent and list agree." },
-        { "id": "c3", "label": "Fasting: last solid meal 4 hours ago, marked 'adequate, proceed'", "correct": true, "why": "Common ASA fasting guidance is at least 6 hours after a light meal and longer after a fatty meal. 4 hours is not adequate; the anesthesiologist must be told." },
-        { "id": "c4", "label": "Current medication: none, recorded", "correct": false, "why": "Recorded correctly." },
-        { "id": "c5", "label": "Allergy section: left blank ('will ask later')", "correct": true, "why": "Allergy status must be actively confirmed and recorded before anesthesia, never left blank." },
-        { "id": "c6", "label": "Baseline vital signs measured and recorded", "correct": false, "why": "Baseline values are documented." }
+        { "id": "c1", "label": "Gelang identitas sesuai status: nama dan tanggal lahir diperiksa", "correct": false, "why": "Pemeriksaan identitas sudah tepat." },
+        { "id": "c2", "label": "Prosedur pada formulir persetujuan sesuai dengan jadwal operasi", "correct": false, "why": "Persetujuan dan jadwal sudah sesuai." },
+        { "id": "c3", "label": "Puasa: makan padat terakhir 4 jam lalu, ditandai 'cukup, lanjutkan'", "correct": true, "why": "Panduan puasa ASA yang umum adalah minimal 6 jam setelah makanan ringan dan lebih lama setelah makanan berlemak. 4 jam tidak cukup; dokter anestesi harus diberi tahu." },
+        { "id": "c4", "label": "Obat yang sedang dikonsumsi: tidak ada, sudah dicatat", "correct": false, "why": "Sudah dicatat dengan benar." },
+        { "id": "c5", "label": "Bagian alergi: dikosongkan ('nanti ditanyakan')", "correct": true, "why": "Status alergi harus ditanyakan secara aktif dan dicatat sebelum anestesi, tidak boleh dikosongkan." },
+        { "id": "c6", "label": "Tanda vital dasar sudah diukur dan dicatat", "correct": false, "why": "Nilai dasar sudah terdokumentasi." }
       ],
-      "explanation": "Two entries are unsafe: fasting time that does not meet common guidance was marked adequate, and the allergy section was left blank. Both can lead to serious harm if not corrected before induction.",
-      "takeaway": "Never accept a checklist item as done unless it is verified and consistent with the facts."
+      "explanation": "Dua entri tidak aman: waktu puasa yang tidak memenuhi panduan umum ditandai cukup, dan bagian alergi dikosongkan. Keduanya dapat membahayakan pasien bila tidak dikoreksi sebelum induksi.",
+      "takeaway": "Jangan terima entri daftar periksa sebagai beres sebelum diverifikasi dan sesuai fakta."
     },
     {
-      "id": "s4", "type": "branching", "title": "New allergy information", "tag": "Communication", "critical": true,
-      "situation": "While you review the history, the patient tells you she had itching and a skin rash after taking amoxicillin as a child. The chart still says 'No known allergies'.",
-      "revealHistory": ["Patient reports rash and itching after amoxicillin (childhood)"],
-      "prompt": "What is the most appropriate action?",
+      "id": "s4", "type": "branching", "title": "Informasi alergi baru", "tag": "Komunikasi", "critical": true,
+      "situation": "Saat menelaah riwayat, pasien mengatakan ia pernah gatal-gatal dan ruam kulit setelah minum amoksisilin waktu kecil. Di status tertulis 'Tidak ada alergi yang diketahui'.",
+      "revealHistory": ["Pasien melaporkan ruam dan gatal setelah minum amoksisilin (masa kecil)"],
+      "prompt": "Tindakan apa yang paling tepat?",
       "options": [
-        { "id": "a", "text": "Clarify the details (drug, reaction, timing), document it as a reported allergy and inform the anesthesia team before the case", "score": 100, "consequence": "The allergy is documented and flagged. The anesthesia team can take it into account when planning drugs for the case." },
-        { "id": "b", "text": "Write it in the notes but tell nobody, because the chart is already signed", "score": 40, "consequence": "It is documented, but the team may not see it in time. Documentation without communication leaves a gap." },
-        { "id": "c", "text": "Ignore it: a rash in childhood is unlikely to matter", "score": 0, "consequence": "The reaction stays unrecorded and the team is unaware of it.", "remedial": "r1" },
-        { "id": "d", "text": "Wait to see whether the surgeon asks about allergies", "score": 0, "consequence": "Nobody may ask, and the information stays with you.", "remedial": "r1" }
+        { "id": "a", "text": "Menggali detailnya (obat, reaksi, waktu), mencatatnya sebagai alergi yang dilaporkan, dan memberi tahu tim anestesi sebelum tindakan", "score": 100, "consequence": "Alergi tercatat dan ditandai. Tim anestesi dapat mempertimbangkannya saat merencanakan obat untuk kasus ini." },
+        { "id": "b", "text": "Menuliskannya di catatan tetapi tidak memberi tahu siapa pun karena status sudah ditandatangani", "score": 40, "consequence": "Sudah tercatat, tetapi tim mungkin tidak melihatnya tepat waktu. Dokumentasi tanpa komunikasi masih menyisakan celah." },
+        { "id": "c", "text": "Mengabaikannya: ruam waktu kecil kecil kemungkinan berpengaruh", "score": 0, "consequence": "Reaksi tersebut tidak tercatat dan tim tidak mengetahuinya.", "remedial": "r1" },
+        { "id": "d", "text": "Menunggu apakah dokter bedah menanyakan alergi", "score": 0, "consequence": "Bisa jadi tidak ada yang bertanya, dan informasinya hanya ada padamu.", "remedial": "r1" }
       ],
-      "explanation": "Any reported drug reaction must be clarified, documented and communicated. Even a reaction that seems minor changes which drugs the team will choose.",
-      "takeaway": "Reported allergy means clarify, document and communicate. All three."
+      "explanation": "Setiap reaksi obat yang dilaporkan harus digali, dicatat, dan dikomunikasikan. Reaksi yang tampak ringan pun memengaruhi pilihan obat oleh tim.",
+      "takeaway": "Alergi yang dilaporkan berarti gali, catat, dan komunikasikan. Ketiganya."
     },
     {
-      "id": "r1", "type": "mcq", "remedial": true, "title": "Follow-up: antibiotic prophylaxis", "tag": "Communication",
-      "situation": "The team is now preparing routine antibiotic prophylaxis. The chart still reads 'No known allergies'.",
-      "prompt": "You remember what the patient told you. What do you do now?",
+      "id": "r1", "type": "mcq", "remedial": true, "title": "Lanjutan: antibiotik profilaksis", "tag": "Komunikasi",
+      "situation": "Tim kini menyiapkan antibiotik profilaksis rutin. Di status masih tertulis 'Tidak ada alergi yang diketahui'.",
+      "prompt": "Kamu ingat apa yang dikatakan pasien. Apa yang kamu lakukan sekarang?",
       "options": [
-        { "id": "a", "text": "Speak up immediately: tell the anesthesiologist about the reported reaction so it can be verified before any antibiotic is given" },
-        { "id": "b", "text": "Stay quiet, because it is not your responsibility" },
-        { "id": "c", "text": "Wait until the surgeon has finished" },
-        { "id": "d", "text": "Give the antibiotic slowly and watch the patient" }
+        { "id": "a", "text": "Segera bicara: memberi tahu dokter anestesi tentang reaksi yang dilaporkan agar diverifikasi sebelum antibiotik apa pun diberikan" },
+        { "id": "b", "text": "Diam saja karena itu bukan tanggung jawabmu" },
+        { "id": "c", "text": "Menunggu sampai dokter bedah selesai" },
+        { "id": "d", "text": "Memberikan antibiotik perlahan sambil mengamati pasien" }
       ],
       "correct": "a",
-      "explanation": "Every team member is responsible for speaking up when patient safety information conflicts with the chart. The right moment is before the drug is given.",
-      "takeaway": "If you know something that affects safety, speak up before the action, not after."
+      "explanation": "Setiap anggota tim bertanggung jawab bersuara saat informasi keselamatan pasien bertentangan dengan status. Waktu yang tepat adalah sebelum obat diberikan.",
+      "takeaway": "Jika kamu tahu sesuatu yang memengaruhi keselamatan, bicara sebelum tindakan, bukan sesudahnya."
     },
     {
-      "id": "s5", "type": "mcq", "title": "Investigations", "tag": "Critical Thinking",
-      "prompt": "This patient is generally healthy with no chronic disease. Which statement about pre-operative investigations is most appropriate?",
+      "id": "s5", "type": "mcq", "title": "Pemeriksaan penunjang", "tag": "Berpikir Kritis",
+      "prompt": "Pasien ini umumnya sehat tanpa penyakit kronis. Pernyataan mana tentang pemeriksaan penunjang pra-operasi yang paling tepat?",
       "options": [
-        { "id": "a", "text": "Tests should be selected based on the patient's clinical condition and the planned surgery, not ordered routinely for everyone" },
-        { "id": "b", "text": "Every patient needs a full panel of blood tests, chest X-ray and ECG" },
-        { "id": "c", "text": "No investigation is ever needed before surgery" },
-        { "id": "d", "text": "Only the surgeon decides which tests are relevant" }
+        { "id": "a", "text": "Pemeriksaan dipilih berdasarkan kondisi klinis pasien dan operasi yang direncanakan, bukan diminta rutin untuk semua orang" },
+        { "id": "b", "text": "Setiap pasien membutuhkan panel lengkap pemeriksaan darah, foto toraks, dan EKG" },
+        { "id": "c", "text": "Pemeriksaan penunjang tidak pernah diperlukan sebelum operasi" },
+        { "id": "d", "text": "Hanya dokter bedah yang menentukan pemeriksaan yang relevan" }
       ],
       "correct": "a",
-      "explanation": "Current practice advisories support selective, indication-based testing guided by the history, examination and type of surgery. Routine testing in healthy patients adds cost and false alarms without clear benefit.",
-      "takeaway": "Order and review tests for a reason, not by habit."
+      "explanation": "Panduan praktik terkini mendukung pemeriksaan yang selektif dan berdasarkan indikasi, sesuai riwayat, pemeriksaan fisik, dan jenis operasi. Pemeriksaan rutin pada pasien sehat menambah biaya dan hasil positif palsu tanpa manfaat yang jelas.",
+      "takeaway": "Minta dan telaah pemeriksaan karena ada alasannya, bukan karena kebiasaan."
     },
     {
-      "id": "s6", "type": "mcq", "title": "ASA class", "tag": "Patient Assessment",
-      "situation": "Summary: 38 years old, BMI 24, non-smoker, no systemic disease, no regular medication, planned elective laparoscopic cholecystectomy.",
-      "prompt": "Which ASA Physical Status class fits this patient best?",
+      "id": "s6", "type": "mcq", "title": "Kelas ASA", "tag": "Asesmen Pasien",
+      "situation": "Ringkasan: usia 38 tahun, IMT 24, tidak merokok, tidak ada penyakit sistemik, tidak minum obat rutin, direncanakan kolesistektomi laparoskopik elektif.",
+      "prompt": "Klasifikasi ASA Physical Status mana yang paling sesuai untuk pasien ini?",
       "options": [
-        { "id": "a", "text": "ASA I: a normal healthy patient" },
-        { "id": "b", "text": "ASA II: a patient with mild systemic disease" },
-        { "id": "c", "text": "ASA III: a patient with severe systemic disease" },
-        { "id": "d", "text": "ASA IV: severe systemic disease that is a constant threat to life" }
+        { "id": "a", "text": "ASA I: pasien sehat normal" },
+        { "id": "b", "text": "ASA II: pasien dengan penyakit sistemik ringan" },
+        { "id": "c", "text": "ASA III: pasien dengan penyakit sistemik berat" },
+        { "id": "d", "text": "ASA IV: penyakit sistemik berat yang merupakan ancaman konstan bagi hidup" }
       ],
       "correct": "a",
-      "explanation": "A healthy, non-smoking patient without systemic disease is ASA I. The final class is assigned by the anesthesiologist; your role is to give accurate information for that decision.",
-      "takeaway": "ASA class reflects systemic health, not the planned operation."
+      "explanation": "Pasien sehat, tidak merokok, tanpa penyakit sistemik adalah ASA I. Klasifikasi akhir ditetapkan oleh dokter anestesi; perananmu adalah memberikan informasi yang akurat untuk keputusan itu.",
+      "takeaway": "Kelas ASA mencerminkan kesehatan sistemik, bukan jenis operasi yang direncanakan."
     },
     {
-      "id": "s7", "type": "mcq", "title": "Documentation", "tag": "Documentation",
-      "prompt": "Which entry best reflects good documentation of this pre-anesthesia assessment?",
+      "id": "s7", "type": "mcq", "title": "Dokumentasi", "tag": "Dokumentasi",
+      "prompt": "Catatan mana yang paling mencerminkan dokumentasi asesmen pra-anestesi yang baik?",
       "options": [
-        { "id": "a", "text": "A legible, timed and signed record covering history, allergies, fasting status, airway findings, ASA class and what was communicated to the team" },
-        { "id": "b", "text": "A verbal report is enough; writing can wait until after the case" },
-        { "id": "c", "text": "Only vital signs, because the rest is in the surgeon's notes" },
-        { "id": "d", "text": "Copy another patient's entry and change the name" }
+        { "id": "a", "text": "Catatan yang terbaca jelas, bertanda waktu dan tanda tangan, berisi riwayat, alergi, status puasa, temuan jalan napas, kelas ASA, dan apa yang sudah dikomunikasikan ke tim" },
+        { "id": "b", "text": "Laporan lisan sudah cukup; menulis bisa menunggu sampai setelah operasi" },
+        { "id": "c", "text": "Hanya tanda vital, karena sisanya sudah ada di catatan dokter bedah" },
+        { "id": "d", "text": "Menyalin catatan pasien lain lalu mengganti namanya" }
       ],
       "correct": "a",
-      "explanation": "The record is the shared source of truth for the whole team. It must be accurate, complete, legible, timed and signed for this patient. Copying another entry risks serious errors.",
-      "takeaway": "If it is not documented, the next person cannot rely on it."
+      "explanation": "Catatan adalah sumber kebenaran bersama seluruh tim. Harus akurat, lengkap, terbaca, bertanda waktu, dan ditandatangani untuk pasien ini. Menyalin catatan pasien lain berisiko menimbulkan kesalahan serius.",
+      "takeaway": "Jika tidak terdokumentasi, orang berikutnya tidak bisa mengandalkannya."
     }
   ]
 }

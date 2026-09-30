@@ -44,11 +44,11 @@ export function timeScore(elapsedMs: number, limitMs: number): number {
 }
 
 export function gradeFor(score: number): string {
-  if (score >= 90) return 'Excellent';
-  if (score >= 80) return 'Very Good';
-  if (score >= 70) return 'Good';
-  if (score >= 60) return 'Needs Practice';
-  return 'Retry Recommended';
+  if (score >= 90) return 'Luar Biasa';
+  if (score >= 80) return 'Sangat Baik';
+  if (score >= 70) return 'Baik';
+  if (score >= 60) return 'Perlu Latihan';
+  return 'Disarankan Mengulang';
 }
 
 const mean = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0);

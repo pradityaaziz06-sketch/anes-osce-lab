@@ -1,24 +1,24 @@
 {
   "id": "anaphylaxis-emergency",
   "number": 6,
-  "title": "Emergency: Suspected Anaphylaxis",
+  "title": "Gawat Darurat: Dugaan Anafilaksis",
   "category": "emergency",
   "difficulty": "ADVANCED",
   "durationMin": 10,
-  "summary": "Recognise a severe allergic reaction under anesthesia and support the team through the first minutes.",
-  "scenario": "General anesthesia has been induced and surgery has started. Minutes after a new intravenous drug is given, the patient's condition changes quickly. You are the anesthesia nurse. Recognise the problem and support the anesthesiologist, who leads the emergency.",
+  "summary": "Kenali reaksi alergi berat saat anestesi dan dukung tim pada menit-menit pertama.",
+  "scenario": "Anestesi umum sudah diinduksi dan operasi telah dimulai. Beberapa menit setelah obat intravena baru diberikan, kondisi pasien berubah cepat. Kamu adalah perawat anestesi. Kenali masalahnya dan dukung dokter anestesi yang memimpin penanganan kedaruratan.",
   "objectives": [
-    "Recognise the pattern of anaphylaxis under anesthesia",
-    "Order the first response actions",
-    "Prepare the right equipment",
-    "Communicate with the surgical team and document"
+    "Mengenali pola anafilaksis saat anestesi",
+    "Mengurutkan tindakan respons pertama",
+    "Menyiapkan peralatan yang tepat",
+    "Berkomunikasi dengan tim bedah dan mendokumentasikan"
   ],
-  "patient": { "sex": "Female", "age": 35, "procedure": "Elective foot surgery under general anesthesia", "note": "ASA I" },
+  "patient": { "sex": "Perempuan", "age": 35, "procedure": "Operasi kaki elektif dengan anestesi umum", "note": "ASA I" },
   "vitals": { "bp": "122/74", "hr": 80, "spo2": 99, "temp": 36.6, "etco2": 36 },
   "history": [
-    "Healthy, no regular medication",
-    "No previous allergy reported",
-    "An intravenous antibiotic was started a few minutes ago"
+    "Sehat, tidak minum obat rutin",
+    "Tidak ada alergi sebelumnya yang dilaporkan",
+    "Antibiotik intravena dimulai beberapa menit lalu"
   ],
   "references": [
     { "title": "Anaphylaxis guidance", "org": "World Allergy Organization (WAO)" },
@@ -26,79 +26,79 @@
   ],
   "steps": [
     {
-      "id": "s1", "type": "mcq", "title": "Recognise", "tag": "Emergency Recognition", "critical": true,
+      "id": "s1", "type": "mcq", "title": "Kenali", "tag": "Pengenalan Kegawatan", "critical": true,
       "vitals": { "bp": "70/38", "hr": 132, "spo2": 91, "etco2": 26 },
-      "situation": "Five minutes after an intravenous antibiotic was started, the monitor shows BP 70/38, HR 132 and SpO₂ 91%. Airway pressures have risen. You notice a red, blotchy rash on the patient's chest and arms.",
-      "prompt": "What is the most likely problem to consider first?",
+      "situation": "Lima menit setelah antibiotik intravena dimulai, monitor menunjukkan TD 70/38, HR 132, dan SpO₂ 91%. Tekanan jalan napas meningkat. Kamu melihat ruam merah berbercak di dada dan lengan pasien.",
+      "prompt": "Apa kemungkinan masalah yang paling dulu dipikirkan?",
       "options": [
-        { "id": "a", "text": "Anaphylaxis: a severe allergic reaction to a recently given drug" },
-        { "id": "b", "text": "Anesthesia that is too light" },
-        { "id": "c", "text": "A vasovagal reaction" },
-        { "id": "d", "text": "Hypothermia" }
+        { "id": "a", "text": "Anafilaksis: reaksi alergi berat terhadap obat yang baru diberikan" },
+        { "id": "b", "text": "Anestesi yang terlalu dangkal" },
+        { "id": "c", "text": "Reaksi vasovagal" },
+        { "id": "d", "text": "Hipotermia" }
       ],
       "correct": "a",
-      "explanation": "Sudden hypotension, tachycardia, bronchospasm-like airway pressure rise and a skin rash shortly after a new drug strongly suggest anaphylaxis. Skin signs may be absent, so the pattern matters.",
-      "takeaway": "New drug plus sudden hypotension, airway signs and rash: think anaphylaxis."
+      "explanation": "Hipotensi mendadak, takikardia, kenaikan tekanan jalan napas seperti bronkospasme, dan ruam kulit tak lama setelah obat baru sangat mengarah ke anafilaksis. Tanda kulit bisa tidak ada, sehingga polanya yang penting.",
+      "takeaway": "Obat baru disusul hipotensi mendadak, tanda jalan napas, dan ruam: pikirkan anafilaksis."
     },
     {
-      "id": "s2", "type": "sequence", "title": "First actions", "tag": "Emergency Response", "critical": true,
-      "prompt": "Arrange the first-response actions in a logical order.",
+      "id": "s2", "type": "sequence", "title": "Tindakan pertama", "tag": "Respons Darurat", "critical": true,
+      "prompt": "Susun tindakan respons pertama dalam urutan yang logis.",
       "items": [
-        { "id": "i1", "text": "Stop the suspected trigger (for example the antibiotic infusion)" },
-        { "id": "i2", "text": "Call for help and alert the whole team" },
-        { "id": "i3", "text": "Give 100% oxygen and support the airway and ventilation" },
-        { "id": "i4", "text": "Prepare epinephrine according to institutional protocol, as directed by the anesthesiologist" },
-        { "id": "i5", "text": "Support circulation: large-bore IV access and IV fluids as directed" },
-        { "id": "i6", "text": "Document the timeline and suspected agent; collect samples if requested" }
+        { "id": "i1", "text": "Hentikan pemicu yang dicurigai (misalnya infus antibiotik)" },
+        { "id": "i2", "text": "Panggil bantuan dan beri tahu seluruh tim" },
+        { "id": "i3", "text": "Berikan oksigen 100% dan dukung jalan napas serta ventilasi" },
+        { "id": "i4", "text": "Siapkan epinefrin sesuai protokol institusi, sesuai arahan dokter anestesi" },
+        { "id": "i5", "text": "Dukung sirkulasi: akses IV berlubang besar dan cairan IV sesuai arahan" },
+        { "id": "i6", "text": "Dokumentasikan kronologi dan agen yang dicurigai; ambil sampel bila diminta" }
       ],
-      "explanation": "The trigger is stopped and help is called immediately. Oxygenation and airway support follow, then epinephrine and circulatory support as directed by the anesthesiologist. Documentation is completed as soon as it is safe. Always follow your institution's protocol.",
-      "takeaway": "Stop the trigger, call for help, oxygenate, then support the anesthesiologist's treatment."
+      "explanation": "Pemicu dihentikan dan bantuan dipanggil segera. Oksigenasi dan dukungan jalan napas menyusul, lalu epinefrin dan dukungan sirkulasi sesuai arahan dokter anestesi. Dokumentasi dilengkapi begitu aman. Selalu ikuti protokol institusimu.",
+      "takeaway": "Hentikan pemicu, panggil bantuan, beri oksigen, lalu dukung terapi dokter anestesi."
     },
     {
-      "id": "s3", "type": "equipment", "title": "Prepare for treatment", "tag": "Equipment Preparation", "critical": true,
-      "instruction": "Select what should be prepared or brought to the bedside.",
-      "prompt": "Which items help the team in this emergency?",
+      "id": "s3", "type": "equipment", "title": "Siapkan penanganan", "tag": "Persiapan Peralatan", "critical": true,
+      "instruction": "Pilih apa yang harus disiapkan atau dibawa ke sisi pasien.",
+      "prompt": "Item mana yang membantu tim dalam kedaruratan ini?",
       "items": [
-        { "id": "e1", "label": "Epinephrine available according to protocol, ready for the anesthesiologist", "correct": true, "why": "First-line drug in anaphylaxis. The anesthesiologist decides on use." },
-        { "id": "e2", "label": "Large-bore IV cannula and IV fluid sets", "correct": true, "why": "Circulatory support." },
-        { "id": "e3", "label": "Suction and airway equipment ready", "correct": true, "why": "The airway may need rapid support." },
-        { "id": "e4", "label": "Bag-valve-mask with 100% oxygen", "correct": true, "why": "Ventilation and oxygenation backup." },
-        { "id": "e5", "label": "Defibrillator and resuscitation trolley nearby", "correct": true, "why": "Cardiac arrest is a risk if the patient deteriorates." },
-        { "id": "e6", "label": "The remaining antibiotic, to finish the infusion", "correct": false, "why": "The suspected trigger must not be given again." },
-        { "id": "e7", "label": "Sedative premedication", "correct": false, "why": "Not part of the emergency response." },
-        { "id": "e8", "label": "Tourniquet", "correct": false, "why": "Not needed for this emergency." },
-        { "id": "e9", "label": "Urinary catheter set", "correct": false, "why": "Not a first-response item." }
+        { "id": "e1", "label": "Epinefrin tersedia sesuai protokol, siap untuk dokter anestesi", "correct": true, "why": "Obat lini pertama pada anafilaksis. Dokter anestesi yang memutuskan pemberiannya." },
+        { "id": "e2", "label": "Kanul IV berlubang besar dan set cairan IV", "correct": true, "why": "Dukungan sirkulasi." },
+        { "id": "e3", "label": "Suction dan alat jalan napas siap", "correct": true, "why": "Jalan napas mungkin perlu dukungan cepat." },
+        { "id": "e4", "label": "Bag-valve-mask dengan oksigen 100%", "correct": true, "why": "Cadangan ventilasi dan oksigenasi." },
+        { "id": "e5", "label": "Defibrilator dan troli resusitasi di dekat pasien", "correct": true, "why": "Henti jantung adalah risiko bila pasien memburuk." },
+        { "id": "e6", "label": "Sisa antibiotik, untuk menyelesaikan infus", "correct": false, "why": "Pemicu yang dicurigai tidak boleh diberikan lagi." },
+        { "id": "e7", "label": "Premedikasi sedatif", "correct": false, "why": "Bukan bagian respons kedaruratan." },
+        { "id": "e8", "label": "Torniket", "correct": false, "why": "Tidak diperlukan untuk kedaruratan ini." },
+        { "id": "e9", "label": "Set kateter urin", "correct": false, "why": "Bukan item respons pertama." }
       ],
-      "explanation": "Prepare epinephrine per protocol, fluids and access, airway and ventilation equipment, and emergency resuscitation equipment. The suspected drug must not be given again.",
-      "takeaway": "Remove the trigger, prepare airway, circulation and rescue equipment."
+      "explanation": "Siapkan epinefrin sesuai protokol, cairan dan akses, alat jalan napas dan ventilasi, serta peralatan resusitasi darurat. Obat yang dicurigai tidak boleh diberikan lagi.",
+      "takeaway": "Singkirkan pemicu, siapkan jalan napas, sirkulasi, dan alat penyelamatan."
     },
     {
-      "id": "s4", "type": "branching", "title": "Communication", "tag": "Communication", "critical": true,
-      "situation": "The surgeon says: 'We are almost finished with the incision. Can we continue?'",
-      "prompt": "How do you respond?",
+      "id": "s4", "type": "branching", "title": "Komunikasi", "tag": "Komunikasi", "critical": true,
+      "situation": "Dokter bedah berkata: 'Kami hampir selesai dengan insisi. Boleh dilanjutkan?'",
+      "prompt": "Bagaimana kamu menanggapi?",
       "options": [
-        { "id": "a", "text": "State clearly that the patient is unstable with suspected anaphylaxis, that the anesthesiologist is leading, and that continuing is a team decision once the patient is stabilised", "score": 100, "consequence": "The surgeon has the key facts and the decision is made together with the anesthesiologist." },
-        { "id": "b", "text": "Reassure the surgeon and let them carry on as normal", "score": 0, "consequence": "Continuing without a shared decision puts an unstable patient at risk." },
-        { "id": "c", "text": "Say nothing and leave communication to others", "score": 40, "consequence": "Silence leaves the surgeon uninformed. Clear, brief communication is part of your role." },
-        { "id": "d", "text": "Ask the surgeon to hurry so anesthesia time is shorter", "score": 0, "consequence": "Speeding up surgery does not treat the emergency and adds risk." }
+        { "id": "a", "text": "Menyampaikan dengan jelas bahwa pasien tidak stabil dengan dugaan anafilaksis, dokter anestesi yang memimpin, dan melanjutkan operasi adalah keputusan tim setelah pasien stabil", "score": 100, "consequence": "Dokter bedah mendapat fakta kuncinya dan keputusan diambil bersama dokter anestesi." },
+        { "id": "b", "text": "Menenangkan dokter bedah dan membiarkannya lanjut seperti biasa", "score": 0, "consequence": "Melanjutkan tanpa keputusan bersama membahayakan pasien yang tidak stabil." },
+        { "id": "c", "text": "Tidak berkata apa-apa dan menyerahkan komunikasi kepada orang lain", "score": 40, "consequence": "Diam membuat dokter bedah tidak terinformasi. Komunikasi yang singkat dan jelas adalah bagian dari perananmu." },
+        { "id": "d", "text": "Meminta dokter bedah bergegas agar waktu anestesi lebih singkat", "score": 0, "consequence": "Mempercepat operasi tidak mengobati kedaruratan dan menambah risiko." }
       ],
-      "explanation": "In an emergency the whole team must share the same information. The anesthesiologist leads the medical response, and decisions about the surgery are made jointly.",
-      "takeaway": "Brief, clear, factual communication to the whole team."
+      "explanation": "Dalam kedaruratan, seluruh tim harus berbagi informasi yang sama. Dokter anestesi memimpin respons medis, dan keputusan tentang operasi diambil bersama.",
+      "takeaway": "Komunikasi singkat, jelas, dan faktual kepada seluruh tim."
     },
     {
-      "id": "s5", "type": "mcq", "title": "After stabilisation", "tag": "Documentation", "critical": true,
+      "id": "s5", "type": "mcq", "title": "Setelah stabil", "tag": "Dokumentasi", "critical": true,
       "vitals": { "bp": "108/64", "hr": 96, "spo2": 97, "etco2": 34 },
-      "situation": "The patient is stabilised and will be moved to a monitored area.",
-      "prompt": "What follow-up is essential?",
+      "situation": "Pasien sudah stabil dan akan dipindahkan ke area terpantau.",
+      "prompt": "Tindak lanjut apa yang penting?",
       "options": [
-        { "id": "a", "text": "Document the reaction and suspected agent clearly, hand over to the receiving team, keep close monitoring because symptoms can return, and make sure allergy evaluation is arranged" },
-        { "id": "b", "text": "No follow-up is needed once the vital signs are normal" },
-        { "id": "c", "text": "Tell only the relatives, not the record" },
-        { "id": "d", "text": "Leave the event out of the record so other staff are not alarmed" }
+        { "id": "a", "text": "Mendokumentasikan reaksi dan agen yang dicurigai dengan jelas, serah terima ke tim penerima, tetap memantau ketat karena gejala dapat kembali, dan memastikan evaluasi alergi diatur" },
+        { "id": "b", "text": "Tidak perlu tindak lanjut begitu tanda vital normal" },
+        { "id": "c", "text": "Hanya memberi tahu keluarga, bukan mencatat di status" },
+        { "id": "d", "text": "Tidak mencatat kejadian ini agar staf lain tidak khawatir" }
       ],
       "correct": "a",
-      "explanation": "Symptoms can recur, so close monitoring continues. The suspected agent and reaction must be recorded and communicated so the patient is protected in future and can be evaluated for allergy.",
-      "takeaway": "Document the suspected agent, hand over clearly, keep watching."
+      "explanation": "Gejala dapat kambuh sehingga pemantauan ketat berlanjut. Agen yang dicurigai dan reaksinya harus dicatat dan dikomunikasikan agar pasien terlindungi di masa depan dan dapat dievaluasi untuk alergi.",
+      "takeaway": "Dokumentasikan agen yang dicurigai, serah terima dengan jelas, tetap pantau."
     }
   ]
 }

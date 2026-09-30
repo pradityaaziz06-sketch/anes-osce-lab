@@ -22,10 +22,10 @@ function status(key: keyof Vitals, v: Vitals): Status {
 }
 
 const TILES: { key: keyof Vitals; label: string; unit: string; color: string; fmt?: (x: number) => string }[] = [
-  { key: 'bp', label: 'BP', unit: 'mmHg', color: 'text-white' },
+  { key: 'bp', label: 'TD', unit: 'mmHg', color: 'text-white' },
   { key: 'hr', label: 'HR', unit: 'bpm', color: 'text-ok' },
   { key: 'spo2', label: 'SpO₂', unit: '%', color: 'text-pulse' },
-  { key: 'temp', label: 'TEMP', unit: '°C', color: 'text-blush', fmt: (x) => x.toFixed(1) },
+  { key: 'temp', label: 'SUHU', unit: '°C', color: 'text-blush', fmt: (x) => x.toFixed(1) },
   { key: 'rr', label: 'RR', unit: '/min', color: 'text-warn' },
   { key: 'etco2', label: 'EtCO₂', unit: 'mmHg', color: 'text-warn' },
 ];
@@ -36,11 +36,11 @@ export function PatientCard({ c, vitals, prev, history, newCount, collapsible = 
   const [open, setOpen] = useState(defaultOpen);
   const tiles = TILES.filter((t) => vitals[t.key] !== undefined);
   return (
-    <aside className="space-y-4 lg:sticky lg:top-40 lg:self-start" aria-label="Patient information">
-      <section className="overflow-hidden rounded-3xl border border-white/10 bg-ink-900/90 shadow-soft" aria-label="Vital signs">
+    <aside className="space-y-4 lg:sticky lg:top-40 lg:self-start" aria-label="Informasi pasien">
+      <section className="overflow-hidden rounded-3xl border border-white/10 bg-ink-900/90 shadow-soft" aria-label="Tanda vital">
         <div className="relative h-14 border-b border-white/10 bg-ink-950/70">
           <EcgTrace className="absolute inset-0 h-full w-full px-2" color="#34D399" />
-          <span className="label absolute left-4 top-2 text-ok/80">VITAL SIGNS</span>
+          <span className="label absolute left-4 top-2 text-ok/80">TANDA VITAL</span>
         </div>
         <dl className="grid grid-cols-2 gap-px bg-white/5">
           {tiles.map((t) => {
@@ -53,11 +53,11 @@ export function PatientCard({ c, vitals, prev, history, newCount, collapsible = 
               <div key={t.key} className={cn('bg-ink-900 p-3.5', changed && 'bg-ink-800', st === 'bad' && 'shadow-[inset_0_0_0_1px_rgba(251,113,133,.55)]', st === 'warn' && 'shadow-[inset_0_0_0_1px_rgba(251,191,36,.4)]')}>
                 <dt className="flex items-center justify-between text-[11px] font-semibold tracking-widest text-slate-400">
                   {t.label}
-                  {changed && <span className="rounded bg-blush/20 px-1.5 text-[10px] text-blush">UPDATED</span>}
+                  {changed && <span className="rounded bg-blush/20 px-1.5 text-[10px] text-blush">BERUBAH</span>}
                 </dt>
                 <dd className={cn('num mt-1 text-2xl font-semibold', t.color, st === 'bad' && 'text-bad')}>
                   {text}<span className="ml-1 text-[11px] font-medium text-slate-500">{t.unit}</span>
-                  <span className="sr-only">{st === 'ok' ? '' : st === 'warn' ? ' (abnormal)' : ' (critical)'}</span>
+                  <span className="sr-only">{st === 'ok' ? '' : st === 'warn' ? ' (abnormal)' : ' (kritis)'}</span>
                 </dd>
               </div>
             );
@@ -67,21 +67,21 @@ export function PatientCard({ c, vitals, prev, history, newCount, collapsible = 
 
       <section className="glass p-5">
         <div className="flex items-center justify-between">
-          <h2 className="flex items-center gap-2 font-display text-sm font-semibold tracking-wide"><User size={16} className="text-pulse" aria-hidden />PATIENT</h2>
+          <h2 className="flex items-center gap-2 font-display text-sm font-semibold tracking-wide"><User size={16} className="text-pulse" aria-hidden />PASIEN</h2>
           {collapsible && (
             <button type="button" onClick={() => setOpen(!open)} aria-expanded={open} className="flex min-h-[44px] items-center gap-1 rounded-xl px-2 text-xs font-medium text-slate-300 lg:hidden">
-              {open ? 'Hide' : 'Show'} details <ChevronDown size={14} className={cn('transition', open && 'rotate-180')} aria-hidden />
+              {open ? 'Sembunyikan' : 'Tampilkan'} detail <ChevronDown size={14} className={cn('transition', open && 'rotate-180')} aria-hidden />
             </button>
           )}
         </div>
         <div className={cn(open ? 'block' : 'hidden', 'lg:block')}>
           <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-sm">
-            <dt className="text-slate-400">Sex</dt><dd>{c.patient.sex}</dd>
-            <dt className="text-slate-400">Age</dt><dd>{c.patient.age} years</dd>
-            <dt className="text-slate-400">Procedure</dt><dd>{c.patient.procedure}</dd>
-            {c.patient.note && (<><dt className="text-slate-400">Note</dt><dd>{c.patient.note}</dd></>)}
+            <dt className="text-slate-400">Jenis kelamin</dt><dd>{c.patient.sex}</dd>
+            <dt className="text-slate-400">Usia</dt><dd>{c.patient.age} tahun</dd>
+            <dt className="text-slate-400">Prosedur</dt><dd>{c.patient.procedure}</dd>
+            {c.patient.note && (<><dt className="text-slate-400">Catatan</dt><dd>{c.patient.note}</dd></>)}
           </dl>
-          <h3 className="label mt-5">Patient history</h3>
+          <h3 className="label mt-5">Riwayat pasien</h3>
           <ul className="mt-2 space-y-2 text-sm">
             {history.map((h, i) => {
               const isNew = i >= history.length - newCount;

@@ -4,13 +4,13 @@ import { dayStreak } from './analytics';
 export interface AchievementDef { code: string; label: string; desc: string; icon: 'flag' | 'star' | 'trophy' | 'gem' | 'flame' | 'shield' | 'layers' }
 
 export const ACHIEVEMENTS: AchievementDef[] = [
-  { code: 'FIRST_CASE', label: 'First Case', desc: 'Finish your first station', icon: 'flag' },
-  { code: 'FIVE_CASES', label: '5 Cases', desc: 'Finish 5 stations', icon: 'star' },
-  { code: 'TEN_CASES', label: '10 Cases', desc: 'Finish 10 stations', icon: 'trophy' },
-  { code: 'PERFECT', label: 'Perfect Score', desc: 'Finish a station with no mistakes', icon: 'gem' },
-  { code: 'STREAK_7', label: '7 Day Streak', desc: 'Practice 7 days in a row', icon: 'flame' },
-  { code: 'EXAM_PASS', label: 'Exam Ready', desc: 'Score 80+ in Exam Mode', icon: 'shield' },
-  { code: 'ALL_STATIONS', label: 'All Stations', desc: 'Try every available station', icon: 'layers' },
+  { code: 'FIRST_CASE', label: 'Kasus Pertama', desc: 'Selesaikan station pertamamu', icon: 'flag' },
+  { code: 'FIVE_CASES', label: '5 Kasus', desc: 'Selesaikan 5 station', icon: 'star' },
+  { code: 'TEN_CASES', label: '10 Kasus', desc: 'Selesaikan 10 station', icon: 'trophy' },
+  { code: 'PERFECT', label: 'Skor Sempurna', desc: 'Selesaikan station tanpa kesalahan', icon: 'gem' },
+  { code: 'STREAK_7', label: 'Streak 7 Hari', desc: 'Berlatih 7 hari berturut-turut', icon: 'flame' },
+  { code: 'EXAM_PASS', label: 'Siap Ujian', desc: 'Raih skor 80+ di Mode Ujian', icon: 'shield' },
+  { code: 'ALL_STATIONS', label: 'Semua Station', desc: 'Coba semua station yang tersedia', icon: 'layers' },
 ];
 
 /** Returns every achievement code earned by the given attempts. */

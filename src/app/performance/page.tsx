@@ -19,41 +19,41 @@ export default function PerformancePage() {
       {!ready ? <PageSkeleton /> : (
         <div className="space-y-7">
           <div>
-            <p className="label">Analytics</p>
-            <h1 className="mt-2 font-display text-3xl font-semibold sm:text-4xl">My performance</h1>
+            <p className="label">Analitik</p>
+            <h1 className="mt-2 font-display text-3xl font-semibold sm:text-4xl">Performaku</h1>
           </div>
           {attempts.length === 0 ? (
-            <EmptyState title="No data yet" body="Finish your first station and your scores, timing and weak areas will appear here." action={<Link href="/stations" className="btn btn-primary">Start a station</Link>} />
+            <EmptyState title="Belum ada data" body="Selesaikan station pertamamu, lalu skor, waktu, dan area lemahmu akan muncul di sini." action={<Link href="/stations" className="btn btn-primary">Mulai station</Link>} />
           ) : (
             <>
-              <section className="grid grid-cols-2 gap-3 lg:grid-cols-5" aria-label="Key numbers">
-                <StatCard label="Average Score" value={ov.avgScore} icon={Gauge} />
-                <StatCard label="Best Score" value={ov.bestScore} icon={Trophy} />
-                <StatCard label="Average Time" value={fmtTime(ov.avgTimeMs)} icon={Clock} />
-                <StatCard label="Most Mistaken" value={<span className="block text-base leading-tight">{ins.mostMistaken ? categoryMeta(ins.mostMistaken).label : 'None yet'}</span>} icon={TrendingDown} />
-                <StatCard label="Strongest" value={<span className="block text-base leading-tight">{ins.strongest ? categoryMeta(ins.strongest).label : '—'}</span>} icon={TrendingUp} />
+              <section className="grid grid-cols-2 gap-3 lg:grid-cols-5" aria-label="Angka utama">
+                <StatCard label="Rata-rata Skor" value={ov.avgScore} icon={Gauge} />
+                <StatCard label="Skor Terbaik" value={ov.bestScore} icon={Trophy} />
+                <StatCard label="Rata-rata Waktu" value={fmtTime(ov.avgTimeMs)} icon={Clock} />
+                <StatCard label="Paling Sering Salah" value={<span className="block text-base leading-tight">{ins.mostMistaken ? categoryMeta(ins.mostMistaken).label : 'Belum ada'}</span>} icon={TrendingDown} />
+                <StatCard label="Terkuat" value={<span className="block text-base leading-tight">{ins.strongest ? categoryMeta(ins.strongest).label : '—'}</span>} icon={TrendingUp} />
               </section>
               <section className="glass p-5 sm:p-6">
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h2 className="font-display text-lg font-semibold">Score trend</h2>
-                  <p className="text-xs text-slate-400">Last {Math.min(12, attempts.length)} attempts · dashed line = 60 · pink dots = Exam Mode</p>
+                  <h2 className="font-display text-lg font-semibold">Tren skor</h2>
+                  <p className="text-xs text-slate-400">{Math.min(12, attempts.length)} percobaan terakhir · garis putus-putus = 60 · titik pink = Mode Ujian</p>
                 </div>
                 <div className="mt-4"><TrendChart attempts={attempts} /></div>
               </section>
               <div className="grid gap-5 lg:grid-cols-2">
                 <section className="glass p-5 sm:p-6">
-                  <h2 className="font-display text-lg font-semibold">Average score by category</h2>
+                  <h2 className="font-display text-lg font-semibold">Rata-rata skor per kategori</h2>
                   <ul className="mt-4 space-y-4">
                     {ins.catRows.sort((a, b) => b.avgScore - a.avgScore).map((r) => (
                       <li key={r.id}>
-                        <div className="mb-1.5 flex justify-between text-sm"><span>{categoryMeta(r.id).label}</span><span className="num text-slate-300">{r.avgScore} · {r.n} {r.n === 1 ? 'attempt' : 'attempts'}</span></div>
+                        <div className="mb-1.5 flex justify-between text-sm"><span>{categoryMeta(r.id).label}</span><span className="num text-slate-300">{r.avgScore} · {r.n} percobaan</span></div>
                         <ProgressBar value={r.avgScore} label={`${categoryMeta(r.id).label} average ${r.avgScore}`} tone={r.avgScore >= 80 ? 'ok' : r.avgScore >= 60 ? 'pulse' : 'warn'} />
                       </li>
                     ))}
                   </ul>
                 </section>
                 <section className="glass p-5 sm:p-6">
-                  <h2 className="font-display text-lg font-semibold">Skills, weakest first</h2>
+                  <h2 className="font-display text-lg font-semibold">Keterampilan, terlemah dulu</h2>
                   <ul className="mt-4 space-y-4">
                     {ins.tagRows.slice(0, 8).map((r) => (
                       <li key={r.tag}>

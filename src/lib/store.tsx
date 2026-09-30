@@ -9,7 +9,7 @@ import { levelInfo, type LevelInfo } from './xp';
 import type { Attempt, CaseData, Profile } from './types';
 
 const KEY = 'anes-osce-lab:v1';
-export const DEFAULT_PROFILE: Profile = { name: 'Student', studentId: '', program: 'D4 Keperawatan Anestesiologi', semester: '' };
+export const DEFAULT_PROFILE: Profile = { name: 'Mahasiswa', studentId: '', program: 'D4 Keperawatan Anestesiologi', semester: '' };
 
 interface Persisted { v: 1; profile: Profile; attempts: Attempt[]; unlocked: Record<string, string> }
 type NewAttempt = Omit<Attempt, 'id' | 'newBadges' | 'levelUp'>;
@@ -43,7 +43,7 @@ function readLocal(): Persisted {
     const raw = window.localStorage.getItem(KEY);
     if (raw) {
       const p = JSON.parse(raw) as Persisted;
-      if (p && p.v === 1 && Array.isArray(p.attempts)) return { ...p, profile: { ...DEFAULT_PROFILE, ...p.profile }, unlocked: p.unlocked ?? {} };
+      if (p && p.v === 1 && Array.isArray(p.attempts)) return { ...p, profile: { ...DEFAULT_PROFILE, ...p.profile, name: p.profile?.name === 'Student' ? 'Mahasiswa' : (p.profile?.name ?? DEFAULT_PROFILE.name) }, unlocked: p.unlocked ?? {} };
     }
   } catch { /* corrupted storage: start clean */ }
   return { v: 1, profile: DEFAULT_PROFILE, attempts: [], unlocked: {} };
@@ -108,7 +108,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         }
         setSync('ok'); setSyncMessage('');
       } catch (e) {
-        setSync('error'); setSyncMessage(e instanceof Error ? e.message : 'Sync failed');
+        setSync('error'); setSyncMessage(e instanceof Error ? e.message : 'Sinkronisasi gagal');
       }
     };
 
@@ -134,7 +134,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     if (!sb || !u) return;
     setSync('syncing');
     try { await fn(sb, u.id); setSync('ok'); setSyncMessage(''); }
-    catch (e) { setSync('error'); setSyncMessage(e instanceof Error ? e.message : 'Sync failed'); }
+    catch (e) { setSync('error'); setSyncMessage(e instanceof Error ? e.message : 'Sinkronisasi gagal'); }
   }, []);
 
   const saveAttempt = useCallback((a: NewAttempt): Attempt => {
@@ -166,16 +166,16 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   const signIn = useCallback(async (email: string, password: string) => {
     const sb = getSupabase();
-    if (!sb) return 'Cloud sync is not configured.';
+    if (!sb) return 'Sinkronisasi cloud belum dikonfigurasi.';
     const { error } = await sb.auth.signInWithPassword({ email, password });
     return error ? error.message : null;
   }, []);
   const signUp = useCallback(async (email: string, password: string) => {
     const sb = getSupabase();
-    if (!sb) return 'Cloud sync is not configured.';
+    if (!sb) return 'Sinkronisasi cloud belum dikonfigurasi.';
     const { data: res, error } = await sb.auth.signUp({ email, password });
     if (error) return error.message;
-    if (!res.session) return 'Account created. Check your email to confirm it, then sign in.';
+    if (!res.session) return 'Akun dibuat. Cek email untuk konfirmasi, lalu masuk.';
     return null;
   }, []);
   const signOut = useCallback(async () => {

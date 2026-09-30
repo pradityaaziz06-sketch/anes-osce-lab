@@ -1,4 +1,4 @@
-# ANES OSCE LAB · Tiara Bunda Edition
+# ANES OSCE LAB · Tiara Bunda
 
 Simulator OSCE interaktif untuk **D4 Keperawatan Anestesiologi, Politeknik Tiara Bunda, Cinere, Depok**.
 Next.js 14 (App Router) · TypeScript · Tailwind CSS · Framer Motion · Supabase (opsional).
@@ -22,7 +22,7 @@ Tanpa konfigurasi apa pun aplikasi langsung bisa dimainkan. Progres disimpan di 
 | 6 station siap main | Pre-Anesthesia, Airway, Before Induction Safety Check, Perioperative Monitoring, PACU, Emergency (anafilaksis) |
 | 5 tipe challenge | Multiple choice, Sequence (drag & drop + tombol panah), Equipment selection, Find the error, Branching decision |
 | Branching nyata | Pilihan salah dapat menyisipkan *follow-up step* dan mengubah vital sign / riwayat pasien |
-| Practice vs Exam mode | Practice: feedback langsung, timer berhenti saat membaca feedback. Exam: timer jalan terus, tanpa feedback, berhenti otomatis saat waktu habis |
+| Mode Latihan vs Mode Ujian | Latihan: feedback langsung, timer berhenti saat membaca feedback. Ujian: timer jalan terus, tanpa feedback, berhenti otomatis saat waktu habis |
 | Skor, XP, level, badge | Lihat "Aturan skor" di bawah |
 | Dashboard, Stations, Performance, Profile, Result + Review Mistakes | Semua terhubung ke data nyata |
 | Sound | Klik/benar/salah/hitung mundur 10 detik, bisa dimatikan (tombol speaker) |

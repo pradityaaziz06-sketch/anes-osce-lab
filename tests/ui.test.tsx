@@ -45,11 +45,11 @@ async function answerStep(user: ReturnType<typeof userEvent.setup>, step: Step, 
       const want = step.items.map((i) => i.text);
       for (let target = 0; target < want.length; target++) {
         for (let guard = 0; guard < 20; guard++) {
-          const rows = screen.getAllByRole('button', { name: /^Move up:/ }).map((b) => b.getAttribute('aria-label')!.replace('Move up: ', ''));
+          const rows = screen.getAllByRole('button', { name: /^Naik:/ }).map((b) => b.getAttribute('aria-label')!.replace('Naik: ', ''));
           // Row order = the "Move up" buttons list (first row has a disabled one but still rendered)
           const idx = rows.indexOf(want[target]);
           if (idx <= target) break;
-          await user.click(screen.getByRole('button', { name: `Move up: ${want[target]}` }));
+          await user.click(screen.getByRole('button', { name: `Naik: ${want[target]}` }));
         }
       }
     }
@@ -62,10 +62,10 @@ async function answerStep(user: ReturnType<typeof userEvent.setup>, step: Step, 
 async function playCase(c: CaseData, mode: 'practice' | 'exam', good: boolean) {
   const user = userEvent.setup();
   wrap(<SimulationRunner caseData={c} />);
-  await screen.findByRole('heading', { name: 'Scenario' });
+  await screen.findByRole('heading', { name: 'Skenario' });
   expect(screen.getByRole('timer')).toHaveTextContent(String(c.durationMin).padStart(2, '0') + ':00');
-  await user.click(screen.getByRole('radio', { name: new RegExp(mode === 'exam' ? 'EXAM MODE' : 'PRACTICE MODE') }));
-  await user.click(screen.getByRole('button', { name: /START TIMER/ }));
+  await user.click(screen.getByRole('radio', { name: new RegExp(mode === 'exam' ? 'MODE UJIAN' : 'MODE LATIHAN') }));
+  await user.click(screen.getByRole('button', { name: /MULAI TIMER/ }));
 
   const queue = c.steps.filter((s) => !s.remedial);
   let guard = 0;
@@ -76,11 +76,11 @@ async function playCase(c: CaseData, mode: 'practice' | 'exam', good: boolean) {
     expect(promptEl).toBeInTheDocument();
     seen.push((step as Step).id);
     await answerStep(user, step as Step, good);
-    await user.click(screen.getByRole('button', { name: mode === 'exam' ? /CONFIRM & CONTINUE/ : /CONFIRM ANSWER/ }));
+    await user.click(screen.getByRole('button', { name: mode === 'exam' ? /KONFIRMASI & LANJUT/ : /KONFIRMASI JAWABAN/ }));
     if (mode === 'practice') {
-      expect(await screen.findByText('KEY TAKEAWAY')).toBeInTheDocument();
+      expect(await screen.findByText('POIN KUNCI')).toBeInTheDocument();
       const last = replace.mock.calls.length;
-      await user.click(screen.getByRole('button', { name: /NEXT STEP|FINISH STATION/ }));
+      await user.click(screen.getByRole('button', { name: /LANJUT|SELESAIKAN STATION/ }));
       if (saved().length) break;
       void last;
     } else if (saved().length) break;
@@ -97,22 +97,22 @@ async function playCase(c: CaseData, mode: 'practice' | 'exam', good: boolean) {
 }
 
 describe('landing and static pages render without errors', () => {
-  it('landing', () => { wrap(<Landing />); expect(screen.getAllByText('START PRACTICING').length).toBe(2); expect(screen.getAllByText(/Educational simulation only/).length).toBeGreaterThan(0); });
+  it('landing', () => { wrap(<Landing />); expect(screen.getAllByText('MULAI BERLATIH').length).toBe(2); expect(screen.getAllByText(/Hanya simulasi edukasi/).length).toBeGreaterThan(0); });
   it('dashboard empty state', async () => {
     wrap(<Dashboard />);
-    expect(await screen.findByText(/Welcome back, Student/)).toBeInTheDocument();
-    expect(screen.getByText('Cases Completed')).toBeInTheDocument();
-    expect(screen.getAllByText('INTRAOPERATIVE').length).toBeGreaterThan(0);
-    expect(screen.getByText('Coming soon')).toBeInTheDocument();
+    expect(await screen.findByText(/Selamat datang kembali, Mahasiswa/)).toBeInTheDocument();
+    expect(screen.getByText('Kasus Selesai')).toBeInTheDocument();
+    expect(screen.getAllByText('INTRAOPERATIF').length).toBeGreaterThan(0);
+    expect(screen.getByText('Segera hadir')).toBeInTheDocument();
   });
   it('stations lists every case', async () => {
     wrap(<Stations />);
     for (const c of LOCAL_CASES) expect(await screen.findByText(c.title)).toBeInTheDocument();
   });
-  it('performance empty state', async () => { wrap(<Performance />); expect(await screen.findByText('No data yet')).toBeInTheDocument(); });
-  it('profile', async () => { wrap(<Profile />); expect(await screen.findByText('Save profile')).toBeInTheDocument(); });
-  it('auth (local mode)', async () => { wrap(<Auth />); expect(await screen.findByText('Cloud sync is not configured')).toBeInTheDocument(); });
-  it('result not found', async () => { currentId = 'nope'; wrap(<ResultPage />); expect(await screen.findByText('Result not found')).toBeInTheDocument(); });
+  it('performance empty state', async () => { wrap(<Performance />); expect(await screen.findByText('Belum ada data')).toBeInTheDocument(); });
+  it('profile', async () => { wrap(<Profile />); expect(await screen.findByText('Simpan profil')).toBeInTheDocument(); });
+  it('auth (local mode)', async () => { wrap(<Auth />); expect(await screen.findByText('Sinkronisasi cloud belum dikonfigurasi')).toBeInTheDocument(); });
+  it('result not found', async () => { currentId = 'nope'; wrap(<ResultPage />); expect(await screen.findByText('Hasil tidak ditemukan')).toBeInTheDocument(); });
   it('no console errors', () => { expect(errors).toEqual([]); });
 });
 
@@ -128,7 +128,7 @@ describe('play every station through the real UI', () => {
     });
     it(`${c.id}: exam, all wrong, no feedback shown`, async () => {
       const a = await playCase(c, 'exam', false);
-      expect(screen.queryByText('KEY TAKEAWAY')).toBeNull();
+      expect(screen.queryByText('POIN KUNCI')).toBeNull();
       expect(a.mode).toBe('exam');
       expect(a.final).toBeLessThan(60);
       expect(a.mistakes).toBeGreaterThan(0);
@@ -143,24 +143,24 @@ describe('result page and review', () => {
     currentId = a.id;
     const user = userEvent.setup();
     wrap(<ResultPage />);
-    expect(await screen.findByText(/STATION COMPLETE/)).toBeInTheDocument();
-    expect(screen.getByText('TRY AGAIN')).toBeInTheDocument();
-    expect(screen.getByText(/NEXT STATION/)).toBeInTheDocument();
-    expect(screen.getByText('BACK TO DASHBOARD')).toBeInTheDocument();
-    await user.click(screen.getByRole('button', { name: /REVIEW ANSWERS/ }));
-    expect(await screen.findByText('Review answers')).toBeInTheDocument();
-    expect(screen.getAllByText('Best answer').length).toBeGreaterThan(0);
-    await user.click(screen.getByLabelText(/Review mistakes only/));
-    expect(screen.getAllByText('Key takeaway').length).toBeGreaterThan(0);
+    expect(await screen.findByText(/STATION SELESAI/)).toBeInTheDocument();
+    expect(screen.getByText('COBA LAGI')).toBeInTheDocument();
+    expect(screen.getByText(/STATION BERIKUTNYA/)).toBeInTheDocument();
+    expect(screen.getByText('KEMBALI KE DASHBOARD')).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /TELAAH JAWABAN/ }));
+    expect(await screen.findByText('Telaah jawaban')).toBeInTheDocument();
+    expect(screen.getAllByText('Jawaban terbaik').length).toBeGreaterThan(0);
+    await user.click(screen.getByLabelText(/Hanya telaah kesalahan/));
+    expect(screen.getAllByText('Poin kunci').length).toBeGreaterThan(0);
   });
   it('dashboard and performance reflect a saved attempt', async () => {
     await playCase(LOCAL_CASES[1], 'practice', true);
     cleanup();
     wrap(<Performance />);
-    expect(await screen.findByText('Score trend')).toBeInTheDocument();
+    expect(await screen.findByText('Tren skor')).toBeInTheDocument();
     cleanup();
     wrap(<Dashboard />);
-    await screen.findByText(/Welcome back/);
+    await screen.findByText(/Selamat datang kembali/);
     expect(screen.getByText('1/6')).toBeInTheDocument();
   });
   it('reset progress works', async () => {
@@ -168,9 +168,9 @@ describe('result page and review', () => {
     cleanup();
     const user = userEvent.setup();
     wrap(<Profile />);
-    await user.click(await screen.findByRole('button', { name: 'Reset progress' }));
+    await user.click(await screen.findByRole('button', { name: 'Reset progres' }));
     const dlg = await screen.findByRole('dialog');
-    await user.click(within(dlg).getByRole('button', { name: 'Yes, reset' }));
+    await user.click(within(dlg).getByRole('button', { name: 'Ya, reset' }));
     await waitFor(() => expect(saved().length).toBe(0));
   });
 });
@@ -179,10 +179,10 @@ describe('timer and exit', () => {
   it('exit asks for confirmation and does not save', async () => {
     const user = userEvent.setup();
     wrap(<SimulationRunner caseData={LOCAL_CASES[0]} />);
-    await user.click(await screen.findByRole('button', { name: /START TIMER/ }));
-    await user.click(screen.getByRole('button', { name: 'Leave station' }));
+    await user.click(await screen.findByRole('button', { name: /MULAI TIMER/ }));
+    await user.click(screen.getByRole('button', { name: 'Tinggalkan station' }));
     const dlg = await screen.findByRole('dialog');
-    await user.click(within(dlg).getByRole('button', { name: 'Leave station' }));
+    await user.click(within(dlg).getByRole('button', { name: 'Tinggalkan station' }));
     expect(push).toHaveBeenCalledWith('/stations');
     expect(saved().length).toBe(0);
   });
@@ -190,8 +190,8 @@ describe('timer and exit', () => {
     vi.useFakeTimers({ shouldAdvanceTime: true });
     const c = LOCAL_CASES[0];
     wrap(<SimulationRunner caseData={c} />);
-    fireEvent.click(await screen.findByRole('radio', { name: /EXAM MODE/ }));
-    fireEvent.click(screen.getByRole('button', { name: /START TIMER/ }));
+    fireEvent.click(await screen.findByRole('radio', { name: /MODE UJIAN/ }));
+    fireEvent.click(screen.getByRole('button', { name: /MULAI TIMER/ }));
     await vi.advanceTimersByTimeAsync(c.durationMin * 60_000 + 1500);
     await waitFor(() => expect(saved().length).toBe(1));
     expect(saved()[0].timedOut).toBe(true);

@@ -21,7 +21,7 @@ export function Logo({ compact = false }: { compact?: boolean }) {
       <LogoMark />
       <span className="leading-tight">
         <span className="block font-display text-[15px] font-bold tracking-wide">ANES OSCE LAB</span>
-        {!compact && <span className="block text-[10px] font-semibold tracking-[0.2em] text-blush">TIARA BUNDA EDITION</span>}
+        {!compact && <span className="block text-[10px] font-semibold tracking-[0.2em] text-blush">TIARA BUNDA</span>}
       </span>
     </span>
   );
