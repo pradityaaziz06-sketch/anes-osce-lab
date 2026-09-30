@@ -1,0 +1,104 @@
+{
+  "id": "anaphylaxis-emergency",
+  "number": 6,
+  "title": "Emergency: Suspected Anaphylaxis",
+  "category": "emergency",
+  "difficulty": "ADVANCED",
+  "durationMin": 10,
+  "summary": "Recognise a severe allergic reaction under anesthesia and support the team through the first minutes.",
+  "scenario": "General anesthesia has been induced and surgery has started. Minutes after a new intravenous drug is given, the patient's condition changes quickly. You are the anesthesia nurse. Recognise the problem and support the anesthesiologist, who leads the emergency.",
+  "objectives": [
+    "Recognise the pattern of anaphylaxis under anesthesia",
+    "Order the first response actions",
+    "Prepare the right equipment",
+    "Communicate with the surgical team and document"
+  ],
+  "patient": { "sex": "Female", "age": 35, "procedure": "Elective foot surgery under general anesthesia", "note": "ASA I" },
+  "vitals": { "bp": "122/74", "hr": 80, "spo2": 99, "temp": 36.6, "etco2": 36 },
+  "history": [
+    "Healthy, no regular medication",
+    "No previous allergy reported",
+    "An intravenous antibiotic was started a few minutes ago"
+  ],
+  "references": [
+    { "title": "Anaphylaxis guidance", "org": "World Allergy Organization (WAO)" },
+    { "title": "Emergency treatment of anaphylactic reactions", "org": "Resuscitation Council UK" }
+  ],
+  "steps": [
+    {
+      "id": "s1", "type": "mcq", "title": "Recognise", "tag": "Emergency Recognition", "critical": true,
+      "vitals": { "bp": "70/38", "hr": 132, "spo2": 91, "etco2": 26 },
+      "situation": "Five minutes after an intravenous antibiotic was started, the monitor shows BP 70/38, HR 132 and SpO₂ 91%. Airway pressures have risen. You notice a red, blotchy rash on the patient's chest and arms.",
+      "prompt": "What is the most likely problem to consider first?",
+      "options": [
+        { "id": "a", "text": "Anaphylaxis: a severe allergic reaction to a recently given drug" },
+        { "id": "b", "text": "Anesthesia that is too light" },
+        { "id": "c", "text": "A vasovagal reaction" },
+        { "id": "d", "text": "Hypothermia" }
+      ],
+      "correct": "a",
+      "explanation": "Sudden hypotension, tachycardia, bronchospasm-like airway pressure rise and a skin rash shortly after a new drug strongly suggest anaphylaxis. Skin signs may be absent, so the pattern matters.",
+      "takeaway": "New drug plus sudden hypotension, airway signs and rash: think anaphylaxis."
+    },
+    {
+      "id": "s2", "type": "sequence", "title": "First actions", "tag": "Emergency Response", "critical": true,
+      "prompt": "Arrange the first-response actions in a logical order.",
+      "items": [
+        { "id": "i1", "text": "Stop the suspected trigger (for example the antibiotic infusion)" },
+        { "id": "i2", "text": "Call for help and alert the whole team" },
+        { "id": "i3", "text": "Give 100% oxygen and support the airway and ventilation" },
+        { "id": "i4", "text": "Prepare epinephrine according to institutional protocol, as directed by the anesthesiologist" },
+        { "id": "i5", "text": "Support circulation: large-bore IV access and IV fluids as directed" },
+        { "id": "i6", "text": "Document the timeline and suspected agent; collect samples if requested" }
+      ],
+      "explanation": "The trigger is stopped and help is called immediately. Oxygenation and airway support follow, then epinephrine and circulatory support as directed by the anesthesiologist. Documentation is completed as soon as it is safe. Always follow your institution's protocol.",
+      "takeaway": "Stop the trigger, call for help, oxygenate, then support the anesthesiologist's treatment."
+    },
+    {
+      "id": "s3", "type": "equipment", "title": "Prepare for treatment", "tag": "Equipment Preparation", "critical": true,
+      "instruction": "Select what should be prepared or brought to the bedside.",
+      "prompt": "Which items help the team in this emergency?",
+      "items": [
+        { "id": "e1", "label": "Epinephrine available according to protocol, ready for the anesthesiologist", "correct": true, "why": "First-line drug in anaphylaxis. The anesthesiologist decides on use." },
+        { "id": "e2", "label": "Large-bore IV cannula and IV fluid sets", "correct": true, "why": "Circulatory support." },
+        { "id": "e3", "label": "Suction and airway equipment ready", "correct": true, "why": "The airway may need rapid support." },
+        { "id": "e4", "label": "Bag-valve-mask with 100% oxygen", "correct": true, "why": "Ventilation and oxygenation backup." },
+        { "id": "e5", "label": "Defibrillator and resuscitation trolley nearby", "correct": true, "why": "Cardiac arrest is a risk if the patient deteriorates." },
+        { "id": "e6", "label": "The remaining antibiotic, to finish the infusion", "correct": false, "why": "The suspected trigger must not be given again." },
+        { "id": "e7", "label": "Sedative premedication", "correct": false, "why": "Not part of the emergency response." },
+        { "id": "e8", "label": "Tourniquet", "correct": false, "why": "Not needed for this emergency." },
+        { "id": "e9", "label": "Urinary catheter set", "correct": false, "why": "Not a first-response item." }
+      ],
+      "explanation": "Prepare epinephrine per protocol, fluids and access, airway and ventilation equipment, and emergency resuscitation equipment. The suspected drug must not be given again.",
+      "takeaway": "Remove the trigger, prepare airway, circulation and rescue equipment."
+    },
+    {
+      "id": "s4", "type": "branching", "title": "Communication", "tag": "Communication", "critical": true,
+      "situation": "The surgeon says: 'We are almost finished with the incision. Can we continue?'",
+      "prompt": "How do you respond?",
+      "options": [
+        { "id": "a", "text": "State clearly that the patient is unstable with suspected anaphylaxis, that the anesthesiologist is leading, and that continuing is a team decision once the patient is stabilised", "score": 100, "consequence": "The surgeon has the key facts and the decision is made together with the anesthesiologist." },
+        { "id": "b", "text": "Reassure the surgeon and let them carry on as normal", "score": 0, "consequence": "Continuing without a shared decision puts an unstable patient at risk." },
+        { "id": "c", "text": "Say nothing and leave communication to others", "score": 40, "consequence": "Silence leaves the surgeon uninformed. Clear, brief communication is part of your role." },
+        { "id": "d", "text": "Ask the surgeon to hurry so anesthesia time is shorter", "score": 0, "consequence": "Speeding up surgery does not treat the emergency and adds risk." }
+      ],
+      "explanation": "In an emergency the whole team must share the same information. The anesthesiologist leads the medical response, and decisions about the surgery are made jointly.",
+      "takeaway": "Brief, clear, factual communication to the whole team."
+    },
+    {
+      "id": "s5", "type": "mcq", "title": "After stabilisation", "tag": "Documentation", "critical": true,
+      "vitals": { "bp": "108/64", "hr": 96, "spo2": 97, "etco2": 34 },
+      "situation": "The patient is stabilised and will be moved to a monitored area.",
+      "prompt": "What follow-up is essential?",
+      "options": [
+        { "id": "a", "text": "Document the reaction and suspected agent clearly, hand over to the receiving team, keep close monitoring because symptoms can return, and make sure allergy evaluation is arranged" },
+        { "id": "b", "text": "No follow-up is needed once the vital signs are normal" },
+        { "id": "c", "text": "Tell only the relatives, not the record" },
+        { "id": "d", "text": "Leave the event out of the record so other staff are not alarmed" }
+      ],
+      "correct": "a",
+      "explanation": "Symptoms can recur, so close monitoring continues. The suspected agent and reaction must be recorded and communicated so the patient is protected in future and can be evaluated for allergy.",
+      "takeaway": "Document the suspected agent, hand over clearly, keep watching."
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "id": "airway-management",
+  "number": 2,
+  "title": "Airway Assessment and Preparation",
+  "category": "airway",
+  "difficulty": "INTERMEDIATE",
+  "durationMin": 12,
+  "summary": "Recognise features of a potentially difficult airway and prepare equipment and steps for a safe intubation.",
+  "scenario": "You are assisting the anesthesiologist before general anesthesia. Your task is to recognise airway risk, prepare the equipment, support the intubation sequence and respond correctly when confirmation of tube placement fails.",
+  "objectives": [
+    "Recognise findings that predict a difficult airway",
+    "Prepare primary and backup airway equipment",
+    "Follow a safe airway preparation sequence",
+    "Respond to absent capnography after intubation"
+  ],
+  "patient": { "sex": "Male", "age": 52, "procedure": "Elective hernia repair under general anesthesia", "note": "BMI 34" },
+  "vitals": { "bp": "134/84", "hr": 78, "spo2": 97, "temp": 36.8, "rr": 16 },
+  "history": [
+    "BMI 34, snores at night",
+    "Full beard",
+    "No known allergies",
+    "No previous anesthesia problems reported"
+  ],
+  "references": [
+    { "title": "Practice Guidelines for Management of the Difficult Airway", "org": "American Society of Anesthesiologists (ASA)" },
+    { "title": "Standards for Basic Anesthetic Monitoring", "org": "ASA" }
+  ],
+  "steps": [
+    {
+      "id": "s1", "type": "equipment", "title": "Airway examination", "tag": "Airway Assessment", "critical": true,
+      "instruction": "Select ALL findings that suggest a potentially difficult airway.",
+      "prompt": "The examination findings are listed below. Which ones raise concern?",
+      "items": [
+        { "id": "f1", "label": "Mallampati class III", "correct": true, "why": "Poor visualisation of oropharyngeal structures can predict difficult laryngoscopy." },
+        { "id": "f2", "label": "Thyromental distance about 5 cm", "correct": true, "why": "A short thyromental distance can predict a more anterior larynx and difficult view." },
+        { "id": "f3", "label": "Limited neck extension", "correct": true, "why": "Limited extension makes it harder to align the airway axes." },
+        { "id": "f4", "label": "Full beard", "correct": true, "why": "A beard can prevent a good mask seal during bag-mask ventilation." },
+        { "id": "f5", "label": "Mouth opening about 4 cm", "correct": false, "why": "Adequate mouth opening; not a risk factor." },
+        { "id": "f6", "label": "Intact natural teeth, none loose", "correct": false, "why": "Normal dentition is not a risk indicator." }
+      ],
+      "explanation": "Mallampati III, short thyromental distance, limited neck extension and a full beard are recognised risk indicators for difficult laryngoscopy or mask ventilation. Adequate mouth opening and intact teeth are not concerns.",
+      "takeaway": "Look for combinations of risk indicators, not a single sign."
+    },
+    {
+      "id": "s2", "type": "mcq", "title": "Planning", "tag": "Airway Management", "critical": true,
+      "situation": "You have identified several risk indicators for a difficult airway.",
+      "prompt": "What is the most appropriate response?",
+      "options": [
+        { "id": "a", "text": "Tell the anesthesiologist about the findings and make sure backup airway equipment is ready before induction" },
+        { "id": "b", "text": "Proceed as routine and deal with problems only if they appear" },
+        { "id": "c", "text": "Cancel the operation yourself" },
+        { "id": "d", "text": "Decide the airway plan after the patient is asleep" }
+      ],
+      "correct": "a",
+      "explanation": "Difficult airway guidelines stress recognising the problem early and having a strategy and backup devices prepared before induction. The plan is made by the anesthesiologist with the team.",
+      "takeaway": "Anticipate, communicate and prepare before induction."
+    },
+    {
+      "id": "s3", "type": "equipment", "title": "Prepare the airway station", "tag": "Equipment Preparation", "critical": true,
+      "instruction": "Select the equipment that should be prepared for this induction.",
+      "prompt": "Which items belong in the airway set-up for this patient?",
+      "items": [
+        { "id": "e1", "label": "Suction unit with rigid catheter, tested", "correct": true, "why": "Suction must be working before induction." },
+        { "id": "e2", "label": "Bag-mask with oxygen source and well-fitting face masks", "correct": true, "why": "Needed for pre-oxygenation and rescue ventilation." },
+        { "id": "e3", "label": "Laryngoscope handle and blades, light checked", "correct": true, "why": "A failed light is a preventable problem." },
+        { "id": "e4", "label": "Endotracheal tubes: intended size plus one smaller and one larger, cuff tested", "correct": true, "why": "Sizes vary; the cuff must be tested before use." },
+        { "id": "e5", "label": "Stylet or bougie", "correct": true, "why": "Helps with a difficult view." },
+        { "id": "e6", "label": "Supraglottic airway as a backup device", "correct": true, "why": "A standard backup when intubation or mask ventilation is difficult." },
+        { "id": "e7", "label": "Video laryngoscope available in the room", "correct": true, "why": "Useful when difficulty is anticipated." },
+        { "id": "e8", "label": "Waveform capnography connected", "correct": true, "why": "Needed to confirm tube position." },
+        { "id": "e9", "label": "Chest drain kit", "correct": false, "why": "Not part of routine airway set-up." },
+        { "id": "e10", "label": "Urinary catheter set", "correct": false, "why": "Unrelated to airway management." },
+        { "id": "e11", "label": "Arterial line kit", "correct": false, "why": "Not needed for airway management in this patient." },
+        { "id": "e12", "label": "Defibrillator pads applied to the patient", "correct": false, "why": "Defibrillator should be accessible, but pads are not applied for routine induction." }
+      ],
+      "explanation": "The set-up includes suction, ventilation equipment, primary intubation devices in several sizes, backups such as a supraglottic airway and a video laryngoscope, and capnography. Items for other procedures are not needed.",
+      "takeaway": "Prepare primary AND backup devices, and test them before induction."
+    },
+    {
+      "id": "s4", "type": "sequence", "title": "Intubation sequence", "tag": "Airway Management",
+      "prompt": "Arrange the steps around intubation in a safe order.",
+      "items": [
+        { "id": "i1", "text": "Check suction, laryngoscope light, tube cuff and bag-mask circuit" },
+        { "id": "i2", "text": "Position the patient for laryngoscopy" },
+        { "id": "i3", "text": "Pre-oxygenate with a well-fitted face mask" },
+        { "id": "i4", "text": "Assist the anesthesiologist with induction and tube placement" },
+        { "id": "i5", "text": "Confirm tube position: waveform capnography, chest movement, auscultation" },
+        { "id": "i6", "text": "Secure the tube and record its depth" }
+      ],
+      "explanation": "Equipment is checked first, then the patient is positioned and pre-oxygenated. Only then does induction and intubation happen, followed by confirmation of placement and securing the tube.",
+      "takeaway": "Check, position, pre-oxygenate, intubate, confirm, secure."
+    },
+    {
+      "id": "s5", "type": "branching", "title": "No CO₂ waveform", "tag": "Emergency Response", "critical": true,
+      "vitals": { "spo2": 95, "hr": 88 },
+      "situation": "The tube has been placed and connected to the circuit. The capnography shows NO waveform. Chest rise is unclear and SpO₂ is starting to fall.",
+      "prompt": "What do you do?",
+      "options": [
+        { "id": "a", "text": "Tell the anesthesiologist immediately that there is no CO₂ waveform, keep oxygenating and help re-check tube position as directed", "score": 100, "consequence": "The anesthesiologist knows at once and can reassess the airway while oxygenation is maintained." },
+        { "id": "b", "text": "Check the sampling line and connections yourself and report only if the problem persists", "score": 40, "consequence": "Checking connections is sensible, but delaying the report is unsafe when the airway may be misplaced." },
+        { "id": "c", "text": "Rely on chest auscultation and continue, because capnography is only a backup", "score": 0, "consequence": "Auscultation alone can be misleading. The tube may not be in the trachea and the patient is now desaturating.", "remedial": "r1" },
+        { "id": "d", "text": "Secure the tube with tape and wait a few minutes to see if CO₂ appears", "score": 0, "consequence": "Waiting delays recognition of a possible misplaced tube while oxygen levels fall.", "remedial": "r1" }
+      ],
+      "explanation": "Absent end-tidal CO₂ after intubation means the tube must be assumed misplaced, or the circuit disconnected or obstructed, until proven otherwise. Waveform capnography is the most reliable confirmation of tracheal placement. Report at once and keep the patient oxygenated.",
+      "takeaway": "No waveform means no confirmation. Report immediately and keep oxygenating."
+    },
+    {
+      "id": "r1", "type": "mcq", "remedial": true, "title": "Follow-up: falling SpO₂", "tag": "Emergency Response",
+      "vitals": { "spo2": 88, "hr": 104 },
+      "situation": "SpO₂ is now 88% and still falling. The capnography waveform is still absent.",
+      "prompt": "What is the priority now?",
+      "options": [
+        { "id": "a", "text": "Call for urgent help, alert the anesthesiologist and support oxygenation while tube position is re-evaluated" },
+        { "id": "b", "text": "Wait for the SpO₂ to recover on its own" },
+        { "id": "c", "text": "Record the values and carry on preparing the drapes" },
+        { "id": "d", "text": "Ask the surgeon to start so time is not wasted" }
+      ],
+      "correct": "a",
+      "explanation": "A falling SpO₂ with no confirmation of ventilation is an emergency. Calling for help early and supporting oxygenation is the priority.",
+      "takeaway": "Falling SpO₂ plus unconfirmed airway: call for help early."
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "id": "pre-anesthesia-assessment",
+  "number": 1,
+  "title": "Pre-Anesthesia Assessment",
+  "category": "pre-anesthesia",
+  "difficulty": "BEGINNER",
+  "durationMin": 10,
+  "summary": "Assess an elective patient in the pre-operative holding area and pass the key findings to the anesthesia team.",
+  "scenario": "You are the anesthesia nurse in the pre-operative holding area. A patient is scheduled for elective surgery this morning. Complete a structured pre-anesthesia assessment and make sure the anesthesia team knows everything relevant before induction.",
+  "objectives": [
+    "Identify the patient and procedure correctly",
+    "Follow a logical pre-anesthesia assessment workflow",
+    "Detect safety gaps in a pre-operative checklist",
+    "Communicate and document new allergy information"
+  ],
+  "patient": { "sex": "Female", "age": 38, "procedure": "Elective laparoscopic cholecystectomy", "note": "BMI 24, non-smoker" },
+  "vitals": { "bp": "128/78", "hr": 82, "spo2": 98, "temp": 36.7, "rr": 16 },
+  "history": [
+    "No chronic illness; no regular medication",
+    "Previous appendectomy under general anesthesia 10 years ago, no complications reported",
+    "Non-smoker, no alcohol",
+    "Chart entry from booking: 'No known allergies'"
+  ],
+  "references": [
+    { "title": "Practice Advisory for Preanesthesia Evaluation", "org": "American Society of Anesthesiologists (ASA)" },
+    { "title": "ASA Physical Status Classification System", "org": "ASA" },
+    { "title": "Practice Guidelines for Preoperative Fasting", "org": "ASA" }
+  ],
+  "steps": [
+    {
+      "id": "s1", "type": "mcq", "title": "First contact", "tag": "Patient Identification", "critical": true,
+      "prompt": "The patient has just arrived in the holding area. What do you do FIRST?",
+      "options": [
+        { "id": "a", "text": "Verify identity with two identifiers and confirm the planned procedure with the patient and the chart" },
+        { "id": "b", "text": "Start examining the patient's airway" },
+        { "id": "c", "text": "Ask the patient to sign the consent form straight away" },
+        { "id": "d", "text": "Give premedication to reduce anxiety" }
+      ],
+      "correct": "a",
+      "explanation": "Correct identification and confirmation of the planned procedure prevents wrong-patient and wrong-procedure errors. It comes before any assessment, consent discussion or medication.",
+      "takeaway": "Identify the patient and the procedure first. Every other step depends on it."
+    },
+    {
+      "id": "s2", "type": "sequence", "title": "Assessment workflow", "tag": "Patient Assessment",
+      "prompt": "Arrange the pre-anesthesia assessment in a logical order.",
+      "items": [
+        { "id": "i1", "text": "Review medical, surgical and previous anesthesia history" },
+        { "id": "i2", "text": "Confirm allergies, current medication and other safety questions" },
+        { "id": "i3", "text": "Perform a focused physical examination, including the airway" },
+        { "id": "i4", "text": "Review relevant investigations" },
+        { "id": "i5", "text": "Confirm informed consent is documented and understood" },
+        { "id": "i6", "text": "Record the assessment and communicate findings to the anesthesia team" }
+      ],
+      "explanation": "History guides what to look for on examination, and both guide which investigations are relevant. Consent is confirmed once the plan is clear, and the findings are recorded and communicated last. Institutions may vary slightly; this station follows a history, examination, investigations, consent, communication flow.",
+      "takeaway": "History first, examination second, then investigations, consent and communication."
+    },
+    {
+      "id": "s3", "type": "find-error", "title": "Checklist review", "tag": "Safety", "critical": true,
+      "instruction": "Select every entry that is incorrect or unsafe.",
+      "prompt": "Review the pre-operative checklist below. Which entries need to be corrected before the patient goes to the operating room?",
+      "items": [
+        { "id": "c1", "label": "Identity band matches chart: name and date of birth checked", "correct": false, "why": "Appropriate identity check." },
+        { "id": "c2", "label": "Planned procedure on the consent form matches the operating list", "correct": false, "why": "Consent and list agree." },
+        { "id": "c3", "label": "Fasting: last solid meal 4 hours ago, marked 'adequate, proceed'", "correct": true, "why": "Common ASA fasting guidance is at least 6 hours after a light meal and longer after a fatty meal. 4 hours is not adequate; the anesthesiologist must be told." },
+        { "id": "c4", "label": "Current medication: none, recorded", "correct": false, "why": "Recorded correctly." },
+        { "id": "c5", "label": "Allergy section: left blank ('will ask later')", "correct": true, "why": "Allergy status must be actively confirmed and recorded before anesthesia, never left blank." },
+        { "id": "c6", "label": "Baseline vital signs measured and recorded", "correct": false, "why": "Baseline values are documented." }
+      ],
+      "explanation": "Two entries are unsafe: fasting time that does not meet common guidance was marked adequate, and the allergy section was left blank. Both can lead to serious harm if not corrected before induction.",
+      "takeaway": "Never accept a checklist item as done unless it is verified and consistent with the facts."
+    },
+    {
+      "id": "s4", "type": "branching", "title": "New allergy information", "tag": "Communication", "critical": true,
+      "situation": "While you review the history, the patient tells you she had itching and a skin rash after taking amoxicillin as a child. The chart still says 'No known allergies'.",
+      "revealHistory": ["Patient reports rash and itching after amoxicillin (childhood)"],
+      "prompt": "What is the most appropriate action?",
+      "options": [
+        { "id": "a", "text": "Clarify the details (drug, reaction, timing), document it as a reported allergy and inform the anesthesia team before the case", "score": 100, "consequence": "The allergy is documented and flagged. The anesthesia team can take it into account when planning drugs for the case." },
+        { "id": "b", "text": "Write it in the notes but tell nobody, because the chart is already signed", "score": 40, "consequence": "It is documented, but the team may not see it in time. Documentation without communication leaves a gap." },
+        { "id": "c", "text": "Ignore it: a rash in childhood is unlikely to matter", "score": 0, "consequence": "The reaction stays unrecorded and the team is unaware of it.", "remedial": "r1" },
+        { "id": "d", "text": "Wait to see whether the surgeon asks about allergies", "score": 0, "consequence": "Nobody may ask, and the information stays with you.", "remedial": "r1" }
+      ],
+      "explanation": "Any reported drug reaction must be clarified, documented and communicated. Even a reaction that seems minor changes which drugs the team will choose.",
+      "takeaway": "Reported allergy means clarify, document and communicate. All three."
+    },
+    {
+      "id": "r1", "type": "mcq", "remedial": true, "title": "Follow-up: antibiotic prophylaxis", "tag": "Communication",
+      "situation": "The team is now preparing routine antibiotic prophylaxis. The chart still reads 'No known allergies'.",
+      "prompt": "You remember what the patient told you. What do you do now?",
+      "options": [
+        { "id": "a", "text": "Speak up immediately: tell the anesthesiologist about the reported reaction so it can be verified before any antibiotic is given" },
+        { "id": "b", "text": "Stay quiet, because it is not your responsibility" },
+        { "id": "c", "text": "Wait until the surgeon has finished" },
+        { "id": "d", "text": "Give the antibiotic slowly and watch the patient" }
+      ],
+      "correct": "a",
+      "explanation": "Every team member is responsible for speaking up when patient safety information conflicts with the chart. The right moment is before the drug is given.",
+      "takeaway": "If you know something that affects safety, speak up before the action, not after."
+    },
+    {
+      "id": "s5", "type": "mcq", "title": "Investigations", "tag": "Critical Thinking",
+      "prompt": "This patient is generally healthy with no chronic disease. Which statement about pre-operative investigations is most appropriate?",
+      "options": [
+        { "id": "a", "text": "Tests should be selected based on the patient's clinical condition and the planned surgery, not ordered routinely for everyone" },
+        { "id": "b", "text": "Every patient needs a full panel of blood tests, chest X-ray and ECG" },
+        { "id": "c", "text": "No investigation is ever needed before surgery" },
+        { "id": "d", "text": "Only the surgeon decides which tests are relevant" }
+      ],
+      "correct": "a",
+      "explanation": "Current practice advisories support selective, indication-based testing guided by the history, examination and type of surgery. Routine testing in healthy patients adds cost and false alarms without clear benefit.",
+      "takeaway": "Order and review tests for a reason, not by habit."
+    },
+    {
+      "id": "s6", "type": "mcq", "title": "ASA class", "tag": "Patient Assessment",
+      "situation": "Summary: 38 years old, BMI 24, non-smoker, no systemic disease, no regular medication, planned elective laparoscopic cholecystectomy.",
+      "prompt": "Which ASA Physical Status class fits this patient best?",
+      "options": [
+        { "id": "a", "text": "ASA I: a normal healthy patient" },
+        { "id": "b", "text": "ASA II: a patient with mild systemic disease" },
+        { "id": "c", "text": "ASA III: a patient with severe systemic disease" },
+        { "id": "d", "text": "ASA IV: severe systemic disease that is a constant threat to life" }
+      ],
+      "correct": "a",
+      "explanation": "A healthy, non-smoking patient without systemic disease is ASA I. The final class is assigned by the anesthesiologist; your role is to give accurate information for that decision.",
+      "takeaway": "ASA class reflects systemic health, not the planned operation."
+    },
+    {
+      "id": "s7", "type": "mcq", "title": "Documentation", "tag": "Documentation",
+      "prompt": "Which entry best reflects good documentation of this pre-anesthesia assessment?",
+      "options": [
+        { "id": "a", "text": "A legible, timed and signed record covering history, allergies, fasting status, airway findings, ASA class and what was communicated to the team" },
+        { "id": "b", "text": "A verbal report is enough; writing can wait until after the case" },
+        { "id": "c", "text": "Only vital signs, because the rest is in the surgeon's notes" },
+        { "id": "d", "text": "Copy another patient's entry and change the name" }
+      ],
+      "correct": "a",
+      "explanation": "The record is the shared source of truth for the whole team. It must be accurate, complete, legible, timed and signed for this patient. Copying another entry risks serious errors.",
+      "takeaway": "If it is not documented, the next person cannot rely on it."
+    }
+  ]
+}

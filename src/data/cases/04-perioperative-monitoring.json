@@ -1,0 +1,116 @@
+{
+  "id": "perioperative-monitoring",
+  "number": 4,
+  "title": "Perioperative Monitoring",
+  "category": "monitoring",
+  "difficulty": "BEGINNER",
+  "durationMin": 9,
+  "summary": "Set up basic monitoring, spot monitoring errors and react to a change in the patient's blood pressure.",
+  "scenario": "You are preparing the monitoring for a patient scheduled for general anesthesia. Choose and check the monitors, interpret what you see, and respond correctly when the vital signs change during surgery.",
+  "objectives": [
+    "Name the basic monitoring standard for general anesthesia",
+    "Prepare the correct monitoring equipment",
+    "Detect monitoring set-up errors",
+    "React to a change in vital signs"
+  ],
+  "patient": { "sex": "Female", "age": 29, "procedure": "Elective laparoscopic ovarian cystectomy under general anesthesia", "note": "ASA I" },
+  "vitals": { "bp": "118/72", "hr": 76, "spo2": 99, "temp": 36.6, "rr": 14 },
+  "history": [
+    "No chronic illness, no regular medication",
+    "General anesthesia with a muscle relaxant is planned",
+    "No known allergies"
+  ],
+  "references": [
+    { "title": "Standards for Basic Anesthetic Monitoring", "org": "American Society of Anesthesiologists (ASA)" }
+  ],
+  "steps": [
+    {
+      "id": "s1", "type": "mcq", "title": "Basic standard", "tag": "Monitoring", "critical": true,
+      "prompt": "Which set represents the basic monitoring standard for a general anesthetic?",
+      "options": [
+        { "id": "a", "text": "Pulse oximetry, ECG, non-invasive blood pressure and capnography, with temperature monitored when significant changes are anticipated" },
+        { "id": "b", "text": "ECG only" },
+        { "id": "c", "text": "Invasive arterial and central venous pressure for every patient" },
+        { "id": "d", "text": "Pulse oximetry only, because it shows both oxygenation and ventilation" }
+      ],
+      "correct": "a",
+      "explanation": "Basic standards cover oxygenation (pulse oximetry), ventilation (capnography), circulation (ECG and blood pressure) and temperature when clinically relevant. Pulse oximetry alone shows oxygenation, not ventilation.",
+      "takeaway": "Oxygenation, ventilation, circulation, temperature. One monitor cannot cover all four."
+    },
+    {
+      "id": "s2", "type": "equipment", "title": "Prepare the monitors", "tag": "Equipment Preparation",
+      "instruction": "Select the monitoring equipment to prepare for this patient.",
+      "prompt": "Which items do you prepare?",
+      "items": [
+        { "id": "e1", "label": "Pulse oximeter probe", "correct": true, "why": "Basic oxygenation monitor." },
+        { "id": "e2", "label": "ECG electrodes and leads", "correct": true, "why": "Continuous ECG is a basic standard." },
+        { "id": "e3", "label": "Blood pressure cuff of the correct size", "correct": true, "why": "A wrongly sized cuff gives wrong readings." },
+        { "id": "e4", "label": "Capnography sampling line", "correct": true, "why": "Ventilation monitoring for general anesthesia." },
+        { "id": "e5", "label": "Temperature probe", "correct": true, "why": "Temperature changes are expected during anesthesia." },
+        { "id": "e6", "label": "Peripheral nerve stimulator", "correct": true, "why": "A muscle relaxant is planned, so neuromuscular function should be monitored." },
+        { "id": "e7", "label": "Pulmonary artery catheter", "correct": false, "why": "Not indicated for this healthy patient." },
+        { "id": "e8", "label": "Central venous catheter set", "correct": false, "why": "Not routinely indicated here." },
+        { "id": "e9", "label": "Invasive arterial line kit", "correct": false, "why": "Not routinely indicated for an ASA I patient and this procedure." }
+      ],
+      "explanation": "Prepare the basic monitors plus a nerve stimulator because a muscle relaxant is planned. Invasive monitoring is reserved for patients or procedures that need it.",
+      "takeaway": "Match the monitors to the patient and the plan."
+    },
+    {
+      "id": "s3", "type": "mcq", "title": "Confirming ventilation", "tag": "Monitoring",
+      "vitals": { "bp": "112/68", "hr": 72, "spo2": 99, "etco2": 37 },
+      "situation": "The patient has been intubated. Monitor: SpO₂ 99%, HR 72, BP 112/68, EtCO₂ 37 mmHg with a regular capnogram.",
+      "prompt": "Which finding BEST confirms that the patient is being ventilated effectively?",
+      "options": [
+        { "id": "a", "text": "A regular capnogram waveform with a normal end-tidal CO₂ value" },
+        { "id": "b", "text": "Heart rate below 80" },
+        { "id": "c", "text": "SpO₂ of 99% alone" },
+        { "id": "d", "text": "Blood pressure has not changed" }
+      ],
+      "correct": "a",
+      "explanation": "Capnography directly shows exhaled CO₂ and therefore ventilation. SpO₂ can stay high for a while even when ventilation stops, especially after pre-oxygenation.",
+      "takeaway": "Capnography shows ventilation. SpO₂ lags behind."
+    },
+    {
+      "id": "s4", "type": "find-error", "title": "Monitoring set-up", "tag": "Monitoring", "critical": true,
+      "instruction": "Select every entry that shows a monitoring problem.",
+      "prompt": "Review the current monitoring set-up. Which entries are problems?",
+      "items": [
+        { "id": "c1", "label": "ECG trace clear, leads secure", "correct": false, "why": "Fine." },
+        { "id": "c2", "label": "Capnogram waveform present, EtCO₂ displayed", "correct": false, "why": "Fine." },
+        { "id": "c3", "label": "Temperature probe placed, value displayed", "correct": false, "why": "Fine." },
+        { "id": "c4", "label": "Blood pressure cuff size appropriate for arm", "correct": false, "why": "Fine." },
+        { "id": "c5", "label": "Alarms muted to avoid disturbing the surgeon", "correct": true, "why": "Alarms are a safety net. They must stay audible with appropriate limits." },
+        { "id": "c6", "label": "SpO₂ probe on the same arm as the blood pressure cuff (signal drops at every inflation)", "correct": true, "why": "Cuff inflation interrupts the pulse oximeter signal. Use the other arm or another site." }
+      ],
+      "explanation": "Muted alarms remove an important safety net, and placing the SpO₂ probe on the cuff arm causes repeated signal loss.",
+      "takeaway": "Alarms on, probe and cuff on different limbs."
+    },
+    {
+      "id": "s5", "type": "mcq", "title": "How often?", "tag": "Documentation",
+      "prompt": "At minimum, how often should blood pressure and heart rate be evaluated during general anesthesia according to the ASA basic monitoring standard?",
+      "options": [
+        { "id": "a", "text": "At least every 5 minutes" },
+        { "id": "b", "text": "Every 30 minutes" },
+        { "id": "c", "text": "Once at induction and once at emergence" },
+        { "id": "d", "text": "Only when an alarm sounds" }
+      ],
+      "correct": "a",
+      "explanation": "The ASA standard says arterial blood pressure and heart rate should be evaluated at least every five minutes during anesthesia. Institutional protocols may require more frequent checks.",
+      "takeaway": "Blood pressure and heart rate at least every 5 minutes."
+    },
+    {
+      "id": "s6", "type": "branching", "title": "Falling blood pressure", "tag": "Emergency Response", "critical": true,
+      "vitals": { "bp": "82/48", "hr": 112, "spo2": 98, "etco2": 34 },
+      "situation": "45 minutes into surgery. The monitor now shows BP 82/48 and HR 112. The reading 5 minutes ago was 110/66.",
+      "prompt": "What is your first action?",
+      "options": [
+        { "id": "a", "text": "Inform the anesthesiologist immediately and help verify the reading (cuff, trace) while looking for causes such as bleeding or a change in position", "score": 100, "consequence": "The anesthesiologist is informed early and the reading is checked at the same time." },
+        { "id": "b", "text": "Recycle the cuff and wait for the next reading before telling anyone", "score": 40, "consequence": "Verifying is reasonable, but waiting to inform the anesthesiologist delays the response to a real trend." },
+        { "id": "c", "text": "Assume it is an artifact and ignore it", "score": 0, "consequence": "A clear change in trend, together with a rising heart rate, must not be ignored." },
+        { "id": "d", "text": "Give a medication to raise the pressure without instruction", "score": 0, "consequence": "Medication decisions belong to the anesthesiologist. Acting alone is unsafe." }
+      ],
+      "explanation": "A sharp fall in blood pressure with a rising heart rate is a significant change. Tell the anesthesiologist immediately while you verify the reading and look at possible causes.",
+      "takeaway": "Report significant changes early. Treatment decisions belong to the anesthesiologist."
+    }
+  ]
+}

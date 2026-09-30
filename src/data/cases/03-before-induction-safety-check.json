@@ -1,0 +1,132 @@
+{
+  "id": "before-induction-safety-check",
+  "number": 3,
+  "title": "Before Induction Safety Check",
+  "category": "preparation",
+  "difficulty": "INTERMEDIATE",
+  "durationMin": 10,
+  "summary": "Run the Sign In phase and the equipment check before anesthesia, and stop the case when a safety check fails.",
+  "scenario": "The patient is in the operating room and awake. Before induction, the team performs the Sign In phase of the surgical safety checklist and the anesthesia machine and equipment check. You are the anesthesia nurse responsible for making sure nothing is skipped.",
+  "objectives": [
+    "Place the Sign In phase in the surgical safety checklist",
+    "Recall the order of Sign In items",
+    "Detect unsafe entries on the checklist",
+    "Verify machine and equipment, and respond to a failed check"
+  ],
+  "patient": { "sex": "Male", "age": 45, "procedure": "Elective left knee arthroscopy under general anesthesia", "note": "ASA I" },
+  "vitals": { "bp": "126/80", "hr": 74, "spo2": 99, "temp": 36.6, "rr": 14 },
+  "history": [
+    "No chronic illness, no regular medication",
+    "Reports itchy skin after wearing latex gloves",
+    "Planned procedure: LEFT knee",
+    "Fasting confirmed by patient"
+  ],
+  "references": [
+    { "title": "WHO Surgical Safety Checklist", "org": "World Health Organization (WHO)" },
+    { "title": "Pre-Anesthesia Checkout Procedures (anesthesia machine)", "org": "ASA / manufacturer instructions" }
+  ],
+  "steps": [
+    {
+      "id": "s1", "type": "mcq", "title": "Which phase?", "tag": "Safety",
+      "situation": "The patient is in the operating room, awake, and induction has not started.",
+      "prompt": "Which phase of the WHO Surgical Safety Checklist applies now?",
+      "options": [
+        { "id": "a", "text": "Sign In (before induction of anesthesia)" },
+        { "id": "b", "text": "Time Out (before skin incision)" },
+        { "id": "c", "text": "Sign Out (before the patient leaves the operating room)" },
+        { "id": "d", "text": "Pre-operative clinic visit" }
+      ],
+      "correct": "a",
+      "explanation": "The Sign In phase takes place before induction of anesthesia. Time Out is before incision and Sign Out is before the patient leaves the room.",
+      "takeaway": "Sign In = before induction. Time Out = before incision. Sign Out = before leaving."
+    },
+    {
+      "id": "s2", "type": "sequence", "title": "Sign In order", "tag": "Safety",
+      "prompt": "Arrange the Sign In items in the order they appear on the WHO checklist.",
+      "items": [
+        { "id": "i1", "text": "Confirm identity, site, procedure and consent" },
+        { "id": "i2", "text": "Confirm the surgical site is marked" },
+        { "id": "i3", "text": "Confirm the anesthesia safety check is complete" },
+        { "id": "i4", "text": "Confirm the pulse oximeter is on the patient and working" },
+        { "id": "i5", "text": "Ask about known allergy" },
+        { "id": "i6", "text": "Assess difficult airway or aspiration risk" }
+      ],
+      "explanation": "The WHO Sign In section starts with identity, site, procedure and consent, then site marking, the anesthesia safety check, pulse oximeter, allergy, and difficult airway or aspiration risk.",
+      "takeaway": "Learn the checklist order so no item is skipped under pressure."
+    },
+    {
+      "id": "s3", "type": "find-error", "title": "Spot the unsafe entries", "tag": "Safety", "critical": true,
+      "instruction": "Select every entry that is incorrect or unsafe.",
+      "prompt": "The team has ticked the following Sign In items. Which entries must be corrected before induction?",
+      "items": [
+        { "id": "c1", "label": "Patient confirmed identity, site, procedure and consent", "correct": false, "why": "Correct confirmation." },
+        { "id": "c2", "label": "Site marking: left knee not marked ('will mark after induction')", "correct": true, "why": "The site must be marked while the patient is awake and can confirm it." },
+        { "id": "c3", "label": "Pulse oximeter on the patient and functioning", "correct": false, "why": "Correct." },
+        { "id": "c4", "label": "Allergy: 'No known allergy' ticked, although the patient reported itching with latex gloves", "correct": true, "why": "A reported latex reaction contradicts the ticked entry and must be clarified and communicated." },
+        { "id": "c5", "label": "Anesthesia safety check (machine and medication) completed", "correct": false, "why": "Correct." },
+        { "id": "c6", "label": "Difficult airway and aspiration risk assessed, equipment available", "correct": false, "why": "Correct." }
+      ],
+      "explanation": "Two entries are unsafe: the site was not marked while the patient was awake, and the allergy entry contradicts the history. Both must be fixed before induction.",
+      "takeaway": "A ticked box is only safe when it matches the facts."
+    },
+    {
+      "id": "s4", "type": "equipment", "title": "Machine and equipment check", "tag": "Equipment Preparation", "critical": true,
+      "instruction": "Select the items that must be verified before induction.",
+      "prompt": "Which items belong to the anesthesia machine and equipment check?",
+      "items": [
+        { "id": "e1", "label": "Oxygen supply connected and backup oxygen cylinder available", "correct": true, "why": "Loss of oxygen supply must be covered by a backup." },
+        { "id": "e2", "label": "Breathing circuit leak test performed", "correct": true, "why": "Detects leaks and disconnections." },
+        { "id": "e3", "label": "Self-inflating resuscitation bag ready", "correct": true, "why": "Independent backup for ventilation." },
+        { "id": "e4", "label": "Suction working", "correct": true, "why": "Needed before induction." },
+        { "id": "e5", "label": "Monitor alarms audible and limits appropriate", "correct": true, "why": "Alarms only help when they are on and set correctly." },
+        { "id": "e6", "label": "Gas scavenging system connected", "correct": true, "why": "Protects staff from waste anesthetic gas." },
+        { "id": "e7", "label": "Surgical instrument count sheet", "correct": false, "why": "A surgical team task, not part of the machine check." },
+        { "id": "e8", "label": "Post-operative bed assignment", "correct": false, "why": "Not part of the machine check." },
+        { "id": "e9", "label": "Suture selection for wound closure", "correct": false, "why": "A surgical preparation task." }
+      ],
+      "explanation": "The pre-use check covers oxygen supply and backup, leak test, backup ventilation, suction, monitor alarms and scavenging. Surgical instrument counts, bed assignment and sutures belong to other checks.",
+      "takeaway": "Check what keeps the patient oxygenated, ventilated and monitored."
+    },
+    {
+      "id": "s5", "type": "branching", "title": "Failed leak test", "tag": "Equipment Preparation", "critical": true,
+      "situation": "During the circuit leak test the pressure will not hold. You suspect a loose connection but have not found it. The team is waiting.",
+      "prompt": "What should you do?",
+      "options": [
+        { "id": "a", "text": "Do not proceed to induction. Recheck connections or replace the circuit or machine, repeat the check and inform the anesthesiologist", "score": 100, "consequence": "Induction is delayed until the equipment is confirmed safe, and the anesthesiologist is informed." },
+        { "id": "b", "text": "Proceed, because a small leak can be compensated with higher fresh gas flow", "score": 0, "consequence": "Starting with a known leak risks inadequate ventilation and delivery of gas to the patient.", "remedial": "r1" },
+        { "id": "c", "text": "Recheck all connections and retest, but tell nobody until it is fixed", "score": 40, "consequence": "Rechecking is right, but the anesthesiologist must be told that the check failed." },
+        { "id": "d", "text": "Skip the leak test, because the machine passed its checks yesterday", "score": 0, "consequence": "The pre-use check must be done before each case.", "remedial": "r1" }
+      ],
+      "explanation": "A failed pre-use check means the machine is not ready. Fix or replace the equipment, repeat the check and inform the anesthesiologist before induction.",
+      "takeaway": "A failed check stops the case until it passes."
+    },
+    {
+      "id": "r1", "type": "mcq", "remedial": true, "title": "Follow-up: replacement circuit", "tag": "Equipment Preparation",
+      "situation": "A replacement breathing circuit has been fitted.",
+      "prompt": "What must happen before the machine is used?",
+      "options": [
+        { "id": "a", "text": "Repeat the leak test and relevant checks on the new set-up, and confirm the result to the anesthesiologist" },
+        { "id": "b", "text": "Nothing: a new circuit is always safe" },
+        { "id": "c", "text": "Only check that the circuit looks intact" },
+        { "id": "d", "text": "Test it after induction has begun" }
+      ],
+      "correct": "a",
+      "explanation": "Any change to the breathing system requires the checks to be repeated. Visual inspection alone cannot detect a leak.",
+      "takeaway": "Change the equipment, repeat the check."
+    },
+    {
+      "id": "s6", "type": "mcq", "title": "Medication labelling", "tag": "Medication Safety", "critical": true,
+      "situation": "Syringes of anesthetic medication have been drawn up by the team and are on the tray.",
+      "prompt": "What must be true before any medication is given?",
+      "options": [
+        { "id": "a", "text": "Every syringe is clearly labelled (drug name, concentration) and verified before administration" },
+        { "id": "b", "text": "Unlabelled syringes are acceptable if used immediately" },
+        { "id": "c", "text": "Only the first syringe needs a label" },
+        { "id": "d", "text": "Labels can be added after the case" }
+      ],
+      "correct": "a",
+      "explanation": "Unlabelled syringes are a major source of medication errors. Each syringe must be labelled and verified before it is given.",
+      "takeaway": "Label everything, verify before giving."
+    }
+  ]
+}
